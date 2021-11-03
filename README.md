@@ -2,7 +2,7 @@
 
 *italialaisittain*\
 **boldattuna**\
-_**yhdistys**_\
+_**yhdistys**_
 
 
 
