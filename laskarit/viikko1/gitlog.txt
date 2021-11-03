@@ -1,0 +1,115 @@
+commit 5d8879c3827e727f7676cf4e1cef2b55db596739
+Author: Jere Nuora <jere.nuora@gmail.com>
+Date:   Tue Nov 2 20:42:10 2021 +0200
+
+    poistoja ja muutoksia
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ tiedostoja/file3             | 1 +
+ 3 files changed, 1 insertion(+)
+
+commit 8203c7af2eec2f1f0fb956424f086b51e5c60cfb
+Author: Jere Nuora <jere.nuora@gmail.com>
+Date:   Tue Nov 2 20:39:19 2021 +0200
+
+     lisätty kansio tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 685e5bb2cf942e122b98e720617ca624522e4110
+Author: Jere Nuora <jere.nuora@gmail.com>
+Date:   Tue Nov 2 20:33:39 2021 +0200
+
+     muutoksia
+
+ eka.txt    |  8 +++-----
+ kolmas.txt | 13 ++++++++++++-
+ 2 files changed, 15 insertions(+), 6 deletions(-)
+
+commit 409218b22f4ca83f74dc4a902fae4c0d022cc0e1
+Author: Jere Nuora <jere.nuora@gmail.com>
+Date:   Tue Nov 2 20:32:11 2021 +0200
+
+    uudelleenimettu tiedosto.txt -> eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 20b38e0333126a5172e8916a64d46d2c1f82c48b
+Author: Jere Nuora <jere.nuora@gmail.com>
+Date:   Tue Nov 2 20:31:09 2021 +0200
+
+    toisen poisto
+
+ toinen.txt | 1109 ------------------------------------------------------------
+ 1 file changed, 1109 deletions(-)
+
+commit d13aefd6498647e9efc400f5fdcf070fa5b9a51e
+Author: Jere Nuora <jere.nuora@gmail.com>
+Date:   Tue Nov 2 20:29:11 2021 +0200
+
+    poisto ja lisäys tekstille
+
+ toinen.txt | 553 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 553 insertions(+)
+
+commit d1b5d8f69a8ce09622842009e313082eb29145bb
+Author: Jere Nuora <jere.nuora@gmail.com>
+Date:   Tue Nov 2 20:28:16 2021 +0200
+
+    lisää paljon tekstiä
+
+ toinen.txt | 557 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 556 insertions(+), 1 deletion(-)
+
+commit 2be129ff1c9acaf9dfe8265a78a61fc86d39f959
+Author: Jere Nuora <jere.nuora@gmail.com>
+Date:   Tue Nov 2 20:23:31 2021 +0200
+
+    stuff ja sisältö
+
+ "stuff/nelj\303\244s.txt" | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit b9766ead06ba62c03d4f0ac18868cf615e7e5752
+Author: Jere Nuora <jere.nuora@gmail.com>
+Date:   Tue Nov 2 20:21:52 2021 +0200
+
+    tekstiä lisätty
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit c2ca300e713c3e3ea60f29161241f9ce9e2d2c8f
+Author: Jere Nuora <jere.nuora@gmail.com>
+Date:   Tue Nov 2 20:18:28 2021 +0200
+
+    kolmas.txt luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 9d0dacd2ecd8fb6ef2feab9100111ea2d7861877
+Author: Jere Nuora <jere.nuora@gmail.com>
+Date:   Tue Nov 2 20:16:54 2021 +0200
+
+    muutos ja lissäys
+
+ tiedosto.txt | 6 ++++++
+ toinen.txt   | 0
+ 2 files changed, 6 insertions(+)
+
+commit e2d21098469443ba8711c78a33104555e2cbe47e
+Author: Jere Nuora <jere.nuora@gmail.com>
+Date:   Tue Nov 2 20:15:05 2021 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
