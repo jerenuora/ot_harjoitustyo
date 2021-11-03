@@ -1,7 +1,7 @@
 # Otsikko
 
 *italialaisittain*\
-**boldattuna**\
+**boldattuna**
 
 _**yhdistys**_
 
