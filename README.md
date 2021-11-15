@@ -1,9 +1,5 @@
 # Tetris
 
-*italialaisittain*\
-**boldattuna**
-*muutoksia*
-_**yhdistys**_
 
 [Tuntikirjanpito](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/tuntikirjapinto.md)
 
