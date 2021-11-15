@@ -28,4 +28,4 @@ Ajan salliessa lisätään:
 - Suuntaviivat/putoamiskohta
 - Ajan myötä nopeutuva tahti
 - Eri pelitiloja 
--  
+
