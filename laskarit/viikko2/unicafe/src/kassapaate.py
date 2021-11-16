@@ -38,7 +38,7 @@ class Kassapaate:
 
     def lataa_rahaa_kortille(self, kortti, summa):
         if summa >= 0:
-            kortti.lataa_rahaa(summa)
+            kortti.lataa_rahaa(summa * 100) # fiksattu sentit euroiksi
             self.kassassa_rahaa += summa
         else:
             return
