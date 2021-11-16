@@ -9,5 +9,5 @@ _**Viikko 1:**_\
 
 
 _**Viikko 2:**_\
-[Vaatimusmäärittely](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Vaatimusmäärittely.md)
+[Vaatimusmäärittely](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Vaatimusmäärittely.md)\
 [Testikattavuus](https://github.com/jerenuora/ot_harjoitustyo/blob/master/laskarit/viikko2/Screenshot%202021-11-16%20at%202.06.42.png)
