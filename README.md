@@ -11,8 +11,8 @@ TODO: changed to english midway, tuntikirjanpito etc to be updated accordingly
 - [Vaatimusmäärittely](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Vaatimusmäärittely.md)
 
 ## Installation
--1
--2
+- 1
+- 2
 
 ## Commands
 ### Run program 
