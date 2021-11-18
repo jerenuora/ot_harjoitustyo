@@ -8,7 +8,7 @@ TODO: changed to english midway, tuntikirjanpito etc to be updated accordingly
 
 ## Documentation
 - [Tuntikirjanpito](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/tuntikirjapinto.md)
-- [Vaatimusmäärittely] (https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Vaatimusmäärittely.md)
+- [Vaatimusmäärittely](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Vaatimusmäärittely.md)
 
 ## Installation
 -1
