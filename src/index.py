@@ -17,11 +17,7 @@ def main():
     game_state = GameState()
     pygame.init()
     loop = Loop(game_state,display)
-    game_state.all_sprites.draw(display)
-    pygame.draw.line(display, (0,135,255), (341,10),(341,781),width=5)
-    pygame.draw.line(display, (0,135,255), (794,10),(794,781),width=5)
-    pygame.draw.line(display, (0,135,255), (341,10),(794,10),width=5)
-    pygame.draw.line(display, (0,135,255), (341,781),(794,781),width=5)
+    #game_state.all_sprites.draw(display)
     loop.start()
     #pygame.display.update()
 
