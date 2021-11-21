@@ -1,5 +1,4 @@
 import pygame
-import game_grid
 from game_grid import draw_grid
 
 class Loop:
