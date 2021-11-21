@@ -1,8 +1,10 @@
 import pygame
 # from sprites.bottom import Bottom
 from sprites.backround import Board
-from sprites.block import Block
-from sprites.piece_L import Piece_L
+from sprites.piece_creator import creator
+
+from sprites.block import Block     
+
 
 class GameState:
 
@@ -10,16 +12,16 @@ class GameState:
         
         self.all_sprites = pygame.sprite.Group()
         # # self.bottom = pygame.sprite.Group()
-        self.pieces = pygame.sprite.Group()
+        self.pieces = creator("SHAPE_I", 540, 10)
         self.backround = pygame.sprite.Group()
         # # self.bottom.add(Bottom())        
         self.backround.add(Board(0,0))
-        self.piece_L = pygame.sprite.Group()
-        self.piece_L.add(Block(375, 10))
-        self.piece_L.add(Block(405, 10))
-        self.piece_L.add(Block(405, 40))
-        self.piece_L.add(Block(405, 70))
-        self.pieces.add(self.piece_L)
+        # self.piece_L = pygame.sprite.Group()
+        # self.piece_L.add(Block(375, 10))
+        # self.piece_L.add(Block(405, 10))
+        # self.piece_L.add(Block(405, 40))
+        # self.piece_L.add(Block(405, 70))
+        # self.pieces.add(self.piece_L)
         print(self.pieces)
 
         self.all_sprites.add(self.backround,self.pieces)

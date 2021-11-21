@@ -1,5 +1,4 @@
 import pygame
-import os
 from img_loader import img_loader
 
 
