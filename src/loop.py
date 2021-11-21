@@ -14,7 +14,7 @@ class Loop:
             if self._eventhandler() == False:
                 break
             
-            self._renderer()
+            self._draw_display()
 
             self._clock.tick(6)
 
@@ -34,14 +34,13 @@ class Loop:
             elif event.type == pygame.QUIT:
                 return False
 
-    def _renderer(self):
+    def _draw_display(self):
         self._gamestate.all_sprites.draw(self._display)
-        self.progress_time()
+        self.drop_piece()
         draw_grid(self._display)
         pygame.display.update()
 
-    def progress_time(self):
-        
+    def drop_piece(self):
         self._timer += self._clock.get_time()
         if self._timer > 600:
             self._gamestate.move(y=32)

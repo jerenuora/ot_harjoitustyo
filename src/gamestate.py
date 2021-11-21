@@ -14,7 +14,7 @@ class GameState:
         # # self.bottom = pygame.sprite.Group()
         self.pieces = creator("SHAPE_I", 540, 10)
         self.backround = pygame.sprite.Group()
-        # # self.bottom.add(Bottom())        
+        # # self.bottom.add(Bottom())
         self.backround.add(Board(0,0))
         # self.piece_L = pygame.sprite.Group()
         # self.piece_L.add(Block(375, 10))
@@ -22,10 +22,8 @@ class GameState:
         # self.piece_L.add(Block(405, 40))
         # self.piece_L.add(Block(405, 70))
         # self.pieces.add(self.piece_L)
-        print(self.pieces)
 
         self.all_sprites.add(self.backround,self.pieces)
-        print(self.all_sprites)
 
     def move(self, x=0, y=0):
         for piece in self.pieces:
