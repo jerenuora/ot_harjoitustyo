@@ -2,6 +2,7 @@ import pygame
 from gamestate import GameState
 from img_loader import img_loader
 from loop import Loop
+
 def main():
 
 
