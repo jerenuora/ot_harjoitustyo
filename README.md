@@ -29,6 +29,10 @@ puetru run invoke test
 ```
 
 ### Test coverage
+- Run coverage tests:
+````bash 
+poetry run invoke coverage
+
 - Generate test coverage raport with:
 ```bash
 poetry run invoke coverage-report
