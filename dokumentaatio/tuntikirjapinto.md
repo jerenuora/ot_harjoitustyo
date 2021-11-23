@@ -7,5 +7,6 @@
 | 19.11.| 3    | Design, pygame research
 | 19.11.| 3    | Getting started with coding
 | 20.11.| 5    | Working on gamepiece creation, movement 
-|yht    | 14   | |
+| 23.11 | 2    | Writing tests
+|yht    | 16   | |
 
