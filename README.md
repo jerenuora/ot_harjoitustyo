@@ -4,23 +4,35 @@ A kind of Tetris written in python with pygame.
 
 A course project for Software Development Methods in the University of Helsinki. 
 
-TODO: changed to english midway, tuntikirjanpito etc to be updated accordingly
 
 ## Documentation
 - [Tuntikirjanpito](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/tuntikirjapinto.md)
 - [Vaatimusmäärittely](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Vaatimusmäärittely.md)
 
 ## Installation
-- 1
-- 2
+- Install dependencies with:
+````bash
+poetry install
+```
 
 ## Commands
 ### Run program 
+- Run with:
+````bash
+poetry run invoke start
+```
 
 ### Testing 
-
+- Run tests with:
+````bash 
+puetru run invoke test
+```
 
 ### Test coverage
-
+- Generate test coverage raport with:
+```bash
+poetry run invoke coverage-report
+```
 
 ### Pylint
+TODO
