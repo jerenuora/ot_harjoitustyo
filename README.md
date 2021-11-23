@@ -25,7 +25,7 @@ poetry run invoke start
 ### Testing 
 - Run tests with:
 ```bash 
-puetru run invoke test
+poetry run invoke test
 ```
 
 ### Test coverage
