@@ -8,5 +8,6 @@
 | 19.11.| 3    | Getting started with coding
 | 20.11.| 5    | Working on gamepiece creation, movement 
 | 23.11 | 2    | Writing tests
-|yht    | 16   | |
+| 23.11 | 1    | Making things work on cubbli, polishing
+|yht    | 17   | |
 
