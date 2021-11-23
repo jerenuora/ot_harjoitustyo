@@ -5,7 +5,6 @@ from loop import Loop
 
 def main():
 
-
     display_x = 1145
     display_y = 800
     display = pygame.display.set_mode((display_x,display_y))
