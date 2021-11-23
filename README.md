@@ -11,26 +11,26 @@ A course project for Software Development Methods in the University of Helsinki.
 
 ## Installation
 - Install dependencies with:
-````bash
+```bash
 poetry install
 ```
 
 ## Commands
 ### Run program 
 - Run with:
-````bash
+```bash
 poetry run invoke start
 ```
 
 ### Testing 
 - Run tests with:
-````bash 
+```bash 
 puetru run invoke test
 ```
 
 ### Test coverage
 - Run coverage tests:
-````bash 
+```bash 
 poetry run invoke coverage
 
 - Generate test coverage raport with:
