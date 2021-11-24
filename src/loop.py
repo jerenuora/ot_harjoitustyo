@@ -12,7 +12,6 @@ class Loop:
         while True:
             if self._eventhandler() == False:
                 break
-            
             self._draw_display()
 
             self._clock.tick(6)
