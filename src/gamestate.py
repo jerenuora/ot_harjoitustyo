@@ -3,13 +3,11 @@ import pygame
 from sprites.backround import Board
 from sprites.piece_creator import creator
 
-from sprites.block import Block     
+from sprites.block import Block
 
 
 class GameState:
-
     def __init__(self):
-        
         self.all_sprites = pygame.sprite.Group()
         # # self.bottom = pygame.sprite.Group()
         self.one_piece = Block(20,300)
@@ -34,8 +32,8 @@ class GameState:
             piece.rect.move_ip(x,y)
 
         # This will make the piece move like a snake
-        # if we for some reason need it 
-        # 
+        # if we for some reason need it
+        #
         # prev_x,prev_y = None, None
         # for piece in self.pieces:
         #     if not prev_x:
@@ -46,4 +44,3 @@ class GameState:
         #         a,b = piece.rect.x, piece.rect.y
         #         piece.rect.move_ip(prev_x-a,prev_y-b)
         #         prev_x, prev_y = a,b
-
