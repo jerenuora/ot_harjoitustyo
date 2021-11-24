@@ -1,6 +1,7 @@
 import pygame
 from game_grid import draw_grid
 
+
 class Loop:
     def __init__(self, gamestate, display):
         self._gamestate = gamestate
@@ -10,7 +11,7 @@ class Loop:
 
     def start(self):
         while True:
-            if self._eventhandler() == False:
+            if self._eventhandler() is False:
                 break
             self._draw_display()
 
@@ -20,15 +21,15 @@ class Loop:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    self._gamestate.move(x=-32)
+                    self._gamestate.move(X=-32)
                 if event.key == pygame.K_RIGHT:
-                    self._gamestate.move(x=32)
+                    self._gamestate.move(X=32)
                 if event.key == pygame.K_UP:
-                    self._gamestate.move(y=-32)
+                    self._gamestate.move(Y=-32)
                 if event.key == pygame.K_DOWN:
-                    self._gamestate.move(y=32)
+                    self._gamestate.move(Y=32)
                 if event.key == pygame.K_ESCAPE:
-                        return False
+                    return False
             elif event.type == pygame.QUIT:
                 return False
 
@@ -41,5 +42,5 @@ class Loop:
     def drop_piece(self):
         self._timer += self._clock.get_time()
         if self._timer > 600:
-            self._gamestate.move(y=32)
+            self._gamestate.move(Y=32)
             self._timer = 0
