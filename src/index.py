@@ -1,7 +1,7 @@
+import sys
 import pygame
 from gamestate import GameState
 from loop import Loop
-
 
 def main():
 
@@ -23,10 +23,10 @@ def main():
     while True:
         for events in pygame.event.get():
             if events.type == pygame.QUIT:
-                exit()
+                sys.exit()
             if events.type == pygame.KEYDOWN:
                 if events.key == pygame.K_ESCAPE:
-                    exit()
+                    sys.exit()
 
 
 if __name__ == "__main__":

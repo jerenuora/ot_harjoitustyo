@@ -21,13 +21,13 @@ class Loop:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    self._gamestate.move(X=-32)
+                    self._gamestate.move(y_coord=-32)
                 if event.key == pygame.K_RIGHT:
-                    self._gamestate.move(X=32)
+                    self._gamestate.move(x_coord=32)
                 if event.key == pygame.K_UP:
-                    self._gamestate.move(Y=-32)
+                    self._gamestate.move(y_coord=-32)
                 if event.key == pygame.K_DOWN:
-                    self._gamestate.move(Y=32)
+                    self._gamestate.move(y_coord=32)
                 if event.key == pygame.K_ESCAPE:
                     return False
             elif event.type == pygame.QUIT:
@@ -42,5 +42,5 @@ class Loop:
     def drop_piece(self):
         self._timer += self._clock.get_time()
         if self._timer > 600:
-            self._gamestate.move(Y=32)
+            self._gamestate.move(y_coord=32)
             self._timer = 0

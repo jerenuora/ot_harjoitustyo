@@ -8,4 +8,3 @@
 
 #         self.rect = pygame.Rect(1, 1, 1, 21)
 #         self.color = (255,0,0)
-

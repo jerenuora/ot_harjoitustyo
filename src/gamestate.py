@@ -27,9 +27,9 @@ class GameState:
         self.all_sprites.add(self.backround, self.pieces)
         print(self.all_sprites)
 
-    def move(self, X=0, Y=0):
+    def move(self, x_coord=0, y_coord=0):
         for piece in self.pieces:
-            piece.rect.move_ip(X, Y)
+            piece.rect.move_ip(x_coord, y_coord)
 
         # This will make the piece move like a snake
         # if we for some reason need it
