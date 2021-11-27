@@ -10,5 +10,6 @@
 | 23.11.| 2    | Writing tests
 | 23.11.| 1    | Making things work on cubbli, polishing
 | 24.11.| 1    | Setting up linting
-|yht    | 18   | |
+| 27.11.| 1    | Linting
+|yht    | 19   | |
 
