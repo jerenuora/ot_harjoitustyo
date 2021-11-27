@@ -1,0 +1,7 @@
+[MASTER]
+
+# Make pygame acceptable
+extension-pkg-whitelist=pygame
+
+# Ignore tests
+ignore=CVS,ui,tests
