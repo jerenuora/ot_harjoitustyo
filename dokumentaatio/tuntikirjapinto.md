@@ -11,5 +11,6 @@
 | 23.11.| 1    | Making things work on cubbli, polishing
 | 24.11.| 1    | Setting up linting
 | 27.11.| 1    | Linting
-|yht    | 19   | |
+| 27.11.| 4    | Making gamepieces fall, trying to stop them in the right places 
+|yht    | 23   | |
 
