@@ -15,6 +15,7 @@ class Loop:
                 break
             self._draw_display()
             self.drop_piece()
+            self._gamestate.check_for_collision()
 
             self._clock.tick(6)
 
