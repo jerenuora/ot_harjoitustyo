@@ -14,7 +14,7 @@ def main():
     display.fill((255, 255, 255))
 
     game_state = GameState()
-    pygame.init() # pylint: disable=no-member
+    pygame.init() 
     loop = Loop(game_state, display)
     # game_state.all_sprites.draw(display)
     loop.start()

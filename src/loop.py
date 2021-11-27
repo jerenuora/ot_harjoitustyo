@@ -14,6 +14,7 @@ class Loop:
             if self._eventhandler() is False:
                 break
             self._draw_display()
+            self.drop_piece()
 
             self._clock.tick(6)
 
@@ -21,7 +22,7 @@ class Loop:
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    self._gamestate.move(y_coord=-32)
+                    self._gamestate.move(x_coord=-32)
                 if event.key == pygame.K_RIGHT:
                     self._gamestate.move(x_coord=32)
                 if event.key == pygame.K_UP:
@@ -35,7 +36,6 @@ class Loop:
 
     def _draw_display(self):
         self._gamestate.all_sprites.draw(self._display)
-        self.drop_piece()
         draw_grid(self._display)
         pygame.display.update()
 
