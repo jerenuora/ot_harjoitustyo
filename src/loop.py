@@ -13,9 +13,10 @@ class Loop:
         while True:
             if self._eventhandler() is False:
                 break
+            self._gamestate.check_for_collision()
+
             self._draw_display()
             self.drop_piece()
-            self._gamestate.check_for_collision()
 
             self._clock.tick(6)
 

@@ -42,8 +42,8 @@ class GameState:
                     self.pieces.remove(piece)
                 fallen_list = []
                 self.spawn_new_piece()
-                break
-                    
+                return True
+                                    
             elif piece.rect.colliderect(self.bottom):
                 for piece in self.pieces: 
                     self.fallen.add(piece)
@@ -51,10 +51,8 @@ class GameState:
                 fallen_list = []
 
                 self.spawn_new_piece()
-                break
-            else:
-                pass
-
+                return True
+        return False
                     
     def spawn_new_piece(self):
         SHAPES = [
