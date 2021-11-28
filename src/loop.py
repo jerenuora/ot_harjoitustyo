@@ -30,6 +30,9 @@ class Loop:
                     self._gamestate.move(x_coord=32)
                 if event.key == pygame.K_DOWN:
                     self._gamestate.move(y_coord=32)
+                if event.key == pygame.K_UP:
+                    self._gamestate.rotate()
+
                 if event.key == pygame.K_ESCAPE:
                     return False
             elif event.type == pygame.QUIT:

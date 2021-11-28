@@ -7,13 +7,21 @@ from sprites.piece_creator import creator
 from sprites.block import Block
 
 
+SHAPES = [
+    "SHAPE_I",
+    "SHAPE_L",
+    "SHAPE_T",
+    "SHAPE_SQ"
+]
+
 class GameState:
     def __init__(self):
+        self.pick_next()
         self.all_sprites = pygame.sprite.Group()
         # self.bottom = pygame.sprite.Group()
         self.one_piece = Block(20, 300)
         print(self.one_piece.rect.left)
-        self.pieces = creator("SHAPE_SQ", 540, 10)
+        self.pieces = creator(self.next_piece, 540, 10)
         # self.pieces.add(self.one_piece)
         self.fallen = pygame.sprite.Group()
         self.backround = Board(0, 0)
@@ -33,36 +41,34 @@ class GameState:
         for piece in self.pieces:
             piece.rect.move_ip(x_coord, y_coord)
 
-    def check_for_collision(self):                                  # sisäkkäinmenemisen 
-                                                                    # vika on tässä ?
+    def rotate(self):
+        pygame.transform.rotate(self.pieces, 90)
+
+    def check_for_collision(self):          
+
         if pygame.sprite.groupcollide(self.pieces,self.fallen, False, False):
             self.move(x_coord=0, y_coord=-32)
             self.fallen.add(self.pieces)
-            self.pieces.remove()            
+            #self.pieces.remove()         
             self.spawn_new_piece()
             return True
                                 
         elif pygame.sprite.groupcollide(self.pieces,self.bottom, False, False):
             #self.move(x_coord=0, y_coord=-32)
             self.fallen.add(self.pieces)
-            self.pieces.remove()
+            #self.pieces.remove()
 
             self.spawn_new_piece()
             return True
         return False
                     
     def spawn_new_piece(self):
-        SHAPES = [
-            "SHAPE_I",
-            "SHAPE_L",
-            "SHAPE_T",
-            "SHAPE_SQ"
-        ]
-
-        self.pieces = creator(choice(SHAPES), 540, 10)
+        self.pick_next()
+        self.pieces = creator(self.next_piece, 540, 10)
         self.all_sprites.add(self.pieces)
 
-
+    def pick_next(self):
+        self.next_piece = choice(SHAPES)
     # def make_like_a_snake():
         # This will make the piece move like a snake
         # if we for some reason need it
