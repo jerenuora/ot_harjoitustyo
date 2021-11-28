@@ -12,6 +12,6 @@
 | 24.11.| 1    | Setting up linting
 | 27.11.| 1    | Linting
 | 27.11.| 4    | Making gamepieces fall, trying to stop them in the right places 
-| 28.11.| 5.   | Trying to figure out piece rotation, movement
-|yht    | 23   | |
+| 28.11.| 7    | Trying to figure out piece rotation, movement
+|yht    | 30   | |
 
