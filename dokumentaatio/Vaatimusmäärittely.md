@@ -13,11 +13,13 @@ vaikeustasoja. Lisäksi jonkinlainen leaderboad/scoreboard
 ## Suunniteltu toiminnallisuus
 
 ### Perustoiminnallisuus
-- Peli alkaa tyhjältä laudalta 
+- Peli alkaa tyhjältä laudalta --------------------------------------------TEHTY
 - Painikkeet aloitukselle, ja pelin ollessa käynnissä pauselle
-- Palasia tippuu yksitellen pelin yläreunasta, ohjataan wasd/nuolinäppäimet
-- Palasia voi kääntää ja tiputtaa vauhdilla
-- Palaset kasaantuvat, ja täysi rivi laidasta laitaan katoaa
+- Palasia tippuu yksitellen pelin yläreunasta, ohjataan nuolinäppäimillä --TEHTY
+- Palasia voi kääntää 
+- Palasia voi tiputtaa vauhdilla
+- Palaset kasaantuvat -----------------------------------------------------TEHTY
+- Täysi rivi palasia laidasta laitaan katoaa
 - Peli päättyy kasan yltäessä kattoon asti
 
 ## Jatkokehitystä
