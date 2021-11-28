@@ -3,7 +3,7 @@ from random import choice
 from sprites.bottom import Bottom
 from sprites.backround import Board
 from sprites.piece_creator import creator
-
+from sprites.piece_rotator import rotator
 from sprites.block import Block
 
 
@@ -42,7 +42,25 @@ class GameState:
             piece.rect.move_ip(x_coord, y_coord)
 
     def rotate(self):
-        pygame.transform.rotate(self.pieces, 90)
+        x,y = 10000,10000
+        count = 0
+        type = ""
+        dir = ""
+        for piece in self.pieces:
+            if piece.rect.x < x:
+                x =  piece.rect.x
+            if piece.rect.y < y:
+                y = piece.rect.y
+            count += 1
+            type = piece.type
+            dir = piece.orientation
+        new = rotator(self.next_piece, x , y , dir)
+        self.pieces.empty()
+        self.pieces.add(new)
+        self.all_sprites.add(self.pieces)
+
+        self.pieces = new
+        self.all_sprites.add(self.pieces)
 
     def check_for_collision(self):          
 

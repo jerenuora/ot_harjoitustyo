@@ -15,5 +15,5 @@ def creator(shape, spot_x, spot_y):
     for i in range(0, 8, 2):
         x_coord = SHAPES[shape][i] + spot_x
         y_coord = SHAPES[shape][i+1] + spot_y
-        piece.add(Block(x_coord, y_coord))
+        piece.add(Block(x_coord, y_coord,shape))
     return piece
