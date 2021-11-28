@@ -15,6 +15,7 @@ class Loop:
                 break
             self._gamestate.check_for_collision()
 
+
             self._draw_display()
             self.drop_piece()
 
@@ -27,8 +28,6 @@ class Loop:
                     self._gamestate.move(x_coord=-32)
                 if event.key == pygame.K_RIGHT:
                     self._gamestate.move(x_coord=32)
-                if event.key == pygame.K_UP:
-                    self._gamestate.move(y_coord=-32)
                 if event.key == pygame.K_DOWN:
                     self._gamestate.move(y_coord=32)
                 if event.key == pygame.K_ESCAPE:

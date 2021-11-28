@@ -17,8 +17,8 @@ class GameState:
         # self.pieces.add(self.one_piece)
         self.fallen = pygame.sprite.Group()
         self.backround = Board(0, 0)
-        self.bottom = Bottom()
-        # self.bottom.add(Bottom())
+        self.bottom = pygame.sprite.Group()
+        self.bottom.add(Bottom())
         # self.piece_L = pygame.sprite.Group()
         # self.piece_L.add(Block(375, 10))
         # self.piece_L.add(Block(405, 10))
@@ -33,25 +33,22 @@ class GameState:
         for piece in self.pieces:
             piece.rect.move_ip(x_coord, y_coord)
 
-    def check_for_collision(self):
-        fallen_list = [sprite for sprite in self.fallen]
-        for piece in self.pieces:
-            if piece.rect.collidelist(fallen_list) != -1:
-                for piece in self.pieces: 
-                    self.fallen.add(piece)
-                    self.pieces.remove(piece)
-                fallen_list = []
-                self.spawn_new_piece()
-                return True
-                                    
-            elif piece.rect.colliderect(self.bottom):
-                for piece in self.pieces: 
-                    self.fallen.add(piece)
-                    self.pieces.remove(piece)
-                fallen_list = []
+    def check_for_collision(self):                                  # sisäkkäinmenemisen 
+                                                                    # vika on tässä ?
+        if pygame.sprite.groupcollide(self.pieces,self.fallen, False, False):
+            self.move(x_coord=0, y_coord=-32)
+            self.fallen.add(self.pieces)
+            self.pieces.remove()            
+            self.spawn_new_piece()
+            return True
+                                
+        elif pygame.sprite.groupcollide(self.pieces,self.bottom, False, False):
+            #self.move(x_coord=0, y_coord=-32)
+            self.fallen.add(self.pieces)
+            self.pieces.remove()
 
-                self.spawn_new_piece()
-                return True
+            self.spawn_new_piece()
+            return True
         return False
                     
     def spawn_new_piece(self):
