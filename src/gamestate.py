@@ -1,5 +1,5 @@
-import pygame
 from random import choice
+import pygame
 from sprites.bottom import Bottom
 from sprites.backround import Board
 from sprites.piece_creator import creator
@@ -13,6 +13,7 @@ SHAPES = [
     "SHAPE_T",
     "SHAPE_SQ"
 ]
+
 
 class GameState:
     def __init__(self):
@@ -34,7 +35,8 @@ class GameState:
         # self.piece_L.add(Block(405, 70))
         # self.pieces.add(self.piece_L)
 
-        self.all_sprites.add(self.backround, self.bottom, self.pieces, self.fallen)
+        self.all_sprites.add(self.backround, self.bottom,
+                             self.pieces, self.fallen)
         print(self.all_sprites)
 
     def move(self, x_coord=0, y_coord=0):
@@ -42,19 +44,17 @@ class GameState:
             piece.rect.move_ip(x_coord, y_coord)
 
     def rotate(self):
-        x,y = 10000,10000
+        min_x, min_y = 10000, 10000
         count = 0
-        type = ""
-        dir = ""
+        orientation = ""
         for piece in self.pieces:
-            if piece.rect.x < x:
-                x =  piece.rect.x
-            if piece.rect.y < y:
-                y = piece.rect.y
+            if piece.rect.x < min_x:
+                min_x = piece.rect.x
+            if piece.rect.y < min_y:
+                min_y = piece.rect.y
             count += 1
-            type = piece.type
-            dir = piece.orientation
-        new = rotator(self.next_piece, x , y , dir)
+            orientation = piece.orientation
+        new = rotator(self.next_piece, min_x, min_y, orientation)
         self.pieces.empty()
         self.pieces.add(new)
         self.all_sprites.add(self.pieces)
@@ -62,24 +62,24 @@ class GameState:
         self.pieces = new
         self.all_sprites.add(self.pieces)
 
-    def check_for_collision(self):          
+    def check_for_collision(self):
 
-        if pygame.sprite.groupcollide(self.pieces,self.fallen, False, False):
+        if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
             self.move(x_coord=0, y_coord=-32)
             self.fallen.add(self.pieces)
-            #self.pieces.remove()         
+            # self.pieces.remove()
             self.spawn_new_piece()
             return True
-                                
-        elif pygame.sprite.groupcollide(self.pieces,self.bottom, False, False):
+
+        if pygame.sprite.groupcollide(self.pieces, self.bottom, False, False):
             #self.move(x_coord=0, y_coord=-32)
             self.fallen.add(self.pieces)
-            #self.pieces.remove()
+            # self.pieces.remove()
 
             self.spawn_new_piece()
             return True
         return False
-                    
+
     def spawn_new_piece(self):
         self.pick_next()
         self.pieces = creator(self.next_piece, 540, 10)
