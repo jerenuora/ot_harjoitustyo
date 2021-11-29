@@ -1,5 +1,5 @@
 import pygame
-from img_loader import img_loader
+from sprite_operations.img_loader import img_loader
 
 
 class Bottom(pygame.sprite.Sprite):

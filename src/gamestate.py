@@ -2,8 +2,8 @@ from random import choice
 import pygame
 from sprites.bottom import Bottom
 from sprites.backround import Board
-from sprites.piece_creator import creator
-from sprites.piece_rotator import rotator
+from sprite_operations.piece_creator import creator
+from sprite_operations.piece_rotator import rotator
 
 
 SHAPES = [
