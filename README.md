@@ -8,7 +8,7 @@ A course project for Software Development Methods in the University of Helsinki.
 ## Documentation
 - [Tuntikirjanpito](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/tuntikirjapinto.md)
 - [Vaatimusmäärittely](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Vaatimusmäärittely.md)
-
+- [Arkkitehtuuri](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 ## Installation
 - Install dependencies with:
 ```bash
