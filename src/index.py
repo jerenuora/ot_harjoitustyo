@@ -3,22 +3,17 @@ import pygame
 from gamestate import GameState
 from loop import Loop
 
+
 def main():
 
     display_x = 1145
     display_y = 800
     display = pygame.display.set_mode((display_x, display_y))
-
     pygame.display.set_caption("TETRIS")
-
-    display.fill((255, 255, 255))
-
     game_state = GameState()
-    pygame.init() 
+    pygame.init()
     loop = Loop(game_state, display)
-    # game_state.all_sprites.draw(display)
     loop.start()
-    # pygame.display.update()
 
     while True:
         for events in pygame.event.get():

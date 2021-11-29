@@ -29,7 +29,7 @@ class GameState:
             self.bottom,
             self.pieces,
             self.fallen
-            )
+        )
 
     def move(self, x_coord=0, y_coord=0):
         for piece in self.pieces:
@@ -50,7 +50,6 @@ class GameState:
         self.pieces.empty()
         self.pieces.add(new)
         self.all_sprites.add(self.pieces)
-
         self.pieces = new
         self.all_sprites.add(self.pieces)
 
@@ -59,15 +58,11 @@ class GameState:
         if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
             self.move(x_coord=0, y_coord=-32)
             self.fallen.add(self.pieces)
-            # self.pieces.remove()
             self.spawn_new_piece()
             return True
 
         if pygame.sprite.groupcollide(self.pieces, self.bottom, False, False):
-            #self.move(x_coord=0, y_coord=-32)
             self.fallen.add(self.pieces)
-            # self.pieces.remove()
-
             self.spawn_new_piece()
             return True
         return False
@@ -79,17 +74,3 @@ class GameState:
 
     def pick_next(self):
         self.next_piece = choice(SHAPES)
-    # def make_like_a_snake():
-        # This will make the piece move like a snake
-        # if we for some reason need it
-        #
-        # prev_x,prev_y = None, None
-        # for piece in self.pieces:
-        #     if not prev_x:
-        #         prev_x = piece.rect.x
-        #         prev_y = piece.rect.y
-        #         piece.rect.move_ip(x,y)
-        #     else:
-        #         a,b = piece.rect.x, piece.rect.y
-        #         piece.rect.move_ip(prev_x-a,prev_y-b)
-        #         prev_x, prev_y = a,b
