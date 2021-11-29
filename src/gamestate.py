@@ -16,9 +16,10 @@ SHAPES = [
 
 class GameState:
     def __init__(self):
-        self.pick_next()
         self.all_sprites = pygame.sprite.Group()
-        self.pieces = creator(self.next_piece, 540, 10)
+        self.pieces = pygame.sprite.Group()
+        # self.pick_next()
+        # self.pieces = creator(self.next_piece, 540, 10)
         self.fallen = pygame.sprite.Group()
         self.backround = Board(0, 0)
         self.bottom = pygame.sprite.Group()
@@ -30,6 +31,7 @@ class GameState:
             self.pieces,
             self.fallen
         )
+        self.spawn_new_piece()
 
     def move(self, x_coord=0, y_coord=0):
         for piece in self.pieces:

@@ -9,32 +9,48 @@ class Loop:
         self._clock = pygame.time.Clock()
         self.prev_keystroke = "DOWN"
         self._timer = 0
+        self.pause = False
 
     def start(self):
         while True:
             if self._eventhandler() is False:
                 break
-            self._gamestate.check_for_collision()
-            self._draw_display()
-            self.drop_piece()
-            self._clock.tick(6)
 
+            if not self.pause:
+                self._gamestate.check_for_collision()
+                self._draw_display()
+                self.drop_piece()
+                self._clock.tick(6)
+            else:
+
+                self._draw_display()
     def _eventhandler(self):
         for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    self._gamestate.move(x_coord=-32)
-                    self._timer = 0
-                if event.key == pygame.K_RIGHT:
-                    self._gamestate.move(x_coord=32)
-                    self._timer = 0
-                if event.key == pygame.K_DOWN:
-                    self._gamestate.move(y_coord=32)
-                    self._timer = 0
-                if event.key == pygame.K_UP:
-                    self._gamestate.rotate()
-                if event.key == pygame.K_ESCAPE:
-                    return False
+            if not self.pause:
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_p:
+                        self.pause = not self.pause
+
+                    if event.key == pygame.K_LEFT:
+                        self._gamestate.move(x_coord=-32)
+                        self._timer = 0
+                    if event.key == pygame.K_RIGHT:
+                        self._gamestate.move(x_coord=32)
+                        self._timer = 0
+                    if event.key == pygame.K_DOWN:
+                        self._gamestate.move(y_coord=32)
+                        self._timer = 0
+                    if event.key == pygame.K_UP:
+                        self._gamestate.rotate()
+                    if event.key == pygame.K_ESCAPE:
+                        return False
+            elif self.pause:
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_p:
+                        self.pause = not self.pause
+                    if event.key == pygame.K_ESCAPE:
+                        return False
+
             elif event.type == pygame.QUIT:
                 return False
 
