@@ -19,25 +19,18 @@ class GameState:
     def __init__(self):
         self.pick_next()
         self.all_sprites = pygame.sprite.Group()
-        # self.bottom = pygame.sprite.Group()
-        self.one_piece = Block(20, 300)
-        print(self.one_piece.rect.left)
         self.pieces = creator(self.next_piece, 540, 10)
-        # self.pieces.add(self.one_piece)
         self.fallen = pygame.sprite.Group()
         self.backround = Board(0, 0)
         self.bottom = pygame.sprite.Group()
         self.bottom.add(Bottom())
-        # self.piece_L = pygame.sprite.Group()
-        # self.piece_L.add(Block(375, 10))
-        # self.piece_L.add(Block(405, 10))
-        # self.piece_L.add(Block(405, 40))
-        # self.piece_L.add(Block(405, 70))
-        # self.pieces.add(self.piece_L)
 
-        self.all_sprites.add(self.backround, self.bottom,
-                             self.pieces, self.fallen)
-        print(self.all_sprites)
+        self.all_sprites.add(
+            self.backround,
+            self.bottom,
+            self.pieces,
+            self.fallen
+            )
 
     def move(self, x_coord=0, y_coord=0):
         for piece in self.pieces:

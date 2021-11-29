@@ -7,6 +7,7 @@ class Loop:
         self._gamestate = gamestate
         self._display = display
         self._clock = pygame.time.Clock()
+        self.prev_keystroke = "DOWN"
         self._timer = 0
 
     def start(self):
@@ -26,10 +27,13 @@ class Loop:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     self._gamestate.move(x_coord=-32)
+                    self._timer = 0
                 if event.key == pygame.K_RIGHT:
                     self._gamestate.move(x_coord=32)
+                    self._timer = 0
                 if event.key == pygame.K_DOWN:
                     self._gamestate.move(y_coord=32)
+                    self._timer = 0
                 if event.key == pygame.K_UP:
                     self._gamestate.rotate()
 

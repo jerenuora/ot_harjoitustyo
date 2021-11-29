@@ -9,12 +9,14 @@ class TestGamePieceMovement(unittest.TestCase):
 
     def test_a_piece_moves(self):
 
-        x, y = self.gamestate.one_piece.rect.left, self.gamestate.one_piece.rect.top
+        gamepieces = self.gamestate.pieces.sprites()
+        one_gamepiece = gamepieces[0]
+        x, y = one_gamepiece.rect.x, one_gamepiece.rect.y
 
         self.gamestate.move(40, 70)
 
         self.assertEqual(
-            (x+40, y+70), (self.gamestate.one_piece.rect.left, self.gamestate.one_piece.rect.top))
+            (x+40, y+70), (one_gamepiece.rect.left, one_gamepiece.rect.top))
 
     def test_multiple_pieces_move(self):
 
