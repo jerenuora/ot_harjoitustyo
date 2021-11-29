@@ -15,11 +15,8 @@ class Loop:
             if self._eventhandler() is False:
                 break
             self._gamestate.check_for_collision()
-
-
             self._draw_display()
             self.drop_piece()
-
             self._clock.tick(6)
 
     def _eventhandler(self):
@@ -36,7 +33,6 @@ class Loop:
                     self._timer = 0
                 if event.key == pygame.K_UP:
                     self._gamestate.rotate()
-
                 if event.key == pygame.K_ESCAPE:
                     return False
             elif event.type == pygame.QUIT:
