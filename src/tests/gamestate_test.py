@@ -1,11 +1,26 @@
 import unittest
 from gamestate import GameState
+from sprites.piece_creator import creator
 
-
-class TestGamePieceMovement(unittest.TestCase):
+class TestGamestate(unittest.TestCase):
     def setUp(self):
         self.gamestate = GameState()
-        # self.display = pygame.display.set_mode((1145,800))
+
+    def test_collision_fallen(self):
+        a_piece = creator(self.gamestate.next_piece, 540,100)
+        self.gamestate.move(y_coord=100)
+        self.gamestate.fallen.add(a_piece)
+
+        self.assertTrue(self.gamestate.check_for_collision())
+
+    def test_collision_bottom(self):
+        self.gamestate.move(y_coord=650)
+
+        self.assertTrue(self.gamestate.check_for_collision())
+
+    def test_no_collision(self):
+        self.gamestate.move(y_coord=400)
+        self.assertFalse(self.gamestate.check_for_collision())
 
     def test_a_piece_moves(self):
 
