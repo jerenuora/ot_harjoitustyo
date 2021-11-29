@@ -39,4 +39,7 @@ poetry run invoke coverage-report
 ```
 
 ### Pylint
-TODO
+- Run pylint with:
+```bash
+poetry run invoke lint
+```
