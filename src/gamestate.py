@@ -52,8 +52,6 @@ class GameState:
         self.pieces.empty()
         self.pieces.add(new)
         self.all_sprites.add(self.pieces)
-        self.pieces = new
-        self.all_sprites.add(self.pieces)
 
     def check_for_collision(self):
 

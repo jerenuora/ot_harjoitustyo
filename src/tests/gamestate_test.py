@@ -1,6 +1,6 @@
 import unittest
 from gamestate import GameState
-from sprites.piece_creator import creator
+from sprite_operations.piece_creator import creator
 
 class TestGamestate(unittest.TestCase):
     def setUp(self):
@@ -14,7 +14,7 @@ class TestGamestate(unittest.TestCase):
         self.assertTrue(self.gamestate.check_for_collision())
 
     def test_collision_bottom(self):
-        self.gamestate.move(y_coord=650)
+        self.gamestate.move(y_coord=700)
 
         self.assertTrue(self.gamestate.check_for_collision())
 
