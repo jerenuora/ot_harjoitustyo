@@ -1,9 +1,8 @@
 import pygame
-import json
+from sprite_operations.json_loader import load_shapes
 from sprites.block import Block
 
-with open('assets/shapefile_directions.json') as f:
-    SHAPES = json.load(f)
+SHAPES = load_shapes()
 
 def rotator(shape, spot_x, spot_y, orientation):
     
