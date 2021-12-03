@@ -18,8 +18,7 @@ SHAPES = [
 
 
 class GameState:
-    def __init__(self,display):
-        self.display = display
+    def __init__(self):
         self.all_sprites = pygame.sprite.Group()
         self.pieces = pygame.sprite.Group()
         self.fallen = pygame.sprite.Group()
