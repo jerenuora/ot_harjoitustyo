@@ -17,7 +17,7 @@ vaikeustasoja. Lisäksi jonkinlainen leaderboad/scoreboard
 - Painikkeet aloitukselle, ja pelin ollessa käynnissä pauselle
 - Palasia tippuu yksitellen pelin yläreunasta, ohjataan nuolinäppäimillä ---TEHTY
 - Palasia voi kääntää -----------------------------------------------------TEHTY
-- Palasia voi tiputtaa vauhdilla
+- Palasia voi tiputtaa vauhdilla -----------------------------------------TEHTY
 - Palaset kasaantuvat ---------------------------------------------------TEHTY, hieman buginen vielä
 - Täysi rivi palasia laidasta laitaan katoaa
 - Peli päättyy kasan yltäessä kattoon asti
