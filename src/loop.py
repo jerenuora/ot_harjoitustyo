@@ -22,8 +22,8 @@ class Loop:
                 self.drop_piece()
                 self._clock.tick(6)
             else:
-
                 self._draw_display()
+
     def _eventhandler(self):
         for event in pygame.event.get():
             if not self.pause:
@@ -39,11 +39,8 @@ class Loop:
                         self._timer = 0
                     if event.key == pygame.K_DOWN:
                         self._gamestate.move(y_coord=32)
-
                     if event.key == pygame.K_SPACE:
-                        while not self._gamestate.check_for_collision():
-                            self._gamestate.move(y_coord=32)
-                        self._timer = 0
+                        self.drop_to_bottom()
                     if event.key == pygame.K_UP:
                         self._gamestate.rotate()
                     if event.key == pygame.K_ESCAPE:
@@ -68,3 +65,8 @@ class Loop:
         if self._timer > 600:
             self._gamestate.move(y_coord=32)
             self._timer = 0
+
+    def drop_to_bottom(self):
+        while not self._gamestate.check_for_collision():
+            self._gamestate.move(y_coord=32)
+        self._timer = 0
