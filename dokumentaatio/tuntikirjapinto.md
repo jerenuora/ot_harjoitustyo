@@ -15,5 +15,6 @@
 | 28.11.| 7    | Trying to figure out piece rotation, movement
 | 29.11.| 2    | Tests
 | 29.11.| 1    | Refactoring & upgrades
-|yht    | 33   | |
+|  3.12.| 3    | Making piece rotation finally work as intended
+|yht    | 36   | |
 
