@@ -10,7 +10,10 @@ SHAPES = [
     "SHAPE_I",
     "SHAPE_L",
     "SHAPE_T",
-    "SHAPE_SQ"
+    "SHAPE_SQ",
+    "SHAPE_J",
+    "SHAPE_S",
+    "SHAPE_Z"
 ]
 
 
@@ -41,9 +44,7 @@ class GameState:
                 min_y = piece.rect.y
             count += 1
             orientation = piece.orientation
-        # new = rotator(self.next_piece, min_x, min_y, orientation)
         self.pieces.empty()
-
         self.pieces.add(rotator(self.next_piece, min_x, min_y, orientation))
         self.add_all_sprites()
 
