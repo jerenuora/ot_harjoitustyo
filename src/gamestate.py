@@ -10,7 +10,7 @@ SHAPES = [
     "SHAPE_I",
     "SHAPE_L",
     "SHAPE_T",
-    "SHAPE_SQ",
+    "SHAPE_O",
     "SHAPE_J",
     "SHAPE_S",
     "SHAPE_Z"
