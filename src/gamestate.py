@@ -1,7 +1,7 @@
 from random import choice
 import pygame
 from sprites.bottom import Bottom
-from sprites.backround import Board
+from sprites.background import Board
 from sprite_operations.piece_creator import creator
 from sprite_operations.piece_rotator import rotator
 
@@ -15,22 +15,15 @@ SHAPES = [
 
 
 class GameState:
-    def __init__(self):
+    def __init__(self,display):
+        self.display = display
         self.all_sprites = pygame.sprite.Group()
         self.pieces = pygame.sprite.Group()
-        # self.pick_next()
-        # self.pieces = creator(self.next_piece, 540, 10)
         self.fallen = pygame.sprite.Group()
-        self.backround = Board(0, 0)
+        self.background = Board()
         self.bottom = pygame.sprite.Group()
         self.bottom.add(Bottom())
-
-        self.all_sprites.add(
-            self.backround,
-            self.bottom,
-            self.pieces,
-            self.fallen
-        )
+        self.add_all_sprites()
         self.spawn_new_piece()
 
     def move(self, x_coord=0, y_coord=0):
@@ -48,10 +41,11 @@ class GameState:
                 min_y = piece.rect.y
             count += 1
             orientation = piece.orientation
-        new = rotator(self.next_piece, min_x, min_y, orientation)
+        # new = rotator(self.next_piece, min_x, min_y, orientation)
         self.pieces.empty()
-        self.pieces.add(new)
-        self.all_sprites.add(self.pieces)
+
+        self.pieces.add(rotator(self.next_piece, min_x, min_y, orientation))
+        self.add_all_sprites()
 
     def check_for_collision(self):
 
@@ -74,3 +68,12 @@ class GameState:
 
     def pick_next(self):
         self.next_piece = choice(SHAPES)
+
+    def add_all_sprites(self):
+        self.all_sprites.empty()
+        self.all_sprites.add(
+            self.background,
+            self.bottom,
+            self.pieces,
+            self.fallen
+        )

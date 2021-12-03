@@ -10,7 +10,7 @@ def main():
     display_y = 800
     display = pygame.display.set_mode((display_x, display_y))
     pygame.display.set_caption("TETRIS")
-    game_state = GameState()
+    game_state = GameState(display)
     pygame.init()
     loop = Loop(game_state, display)
     loop.start()
