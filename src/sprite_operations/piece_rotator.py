@@ -4,8 +4,9 @@ from sprites.block import Block
 
 SHAPES = load_shapes()
 
+
 def rotator(shape, spot_x, spot_y, orientation):
-    
+
     piece = pygame.sprite.Group()
     for i in range(0, 8, 2):
         if orientation == "UP":

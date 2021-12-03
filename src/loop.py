@@ -26,11 +26,8 @@ class Loop:
 
     def _eventhandler(self):
         for event in pygame.event.get():
-            if not self.pause:
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_p:
-                        self.pause = not self.pause
-
+            if event.type == pygame.KEYDOWN:
+                if not self.pause:
                     if event.key == pygame.K_LEFT:
                         self._gamestate.move(x_coord=-32)
                         self._timer = 0
@@ -43,15 +40,10 @@ class Loop:
                         self.drop_to_bottom()
                     if event.key == pygame.K_UP:
                         self._gamestate.rotate()
-                    if event.key == pygame.K_ESCAPE:
-                        return False
-            elif self.pause:
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_p:
-                        self.pause = not self.pause
-                    if event.key == pygame.K_ESCAPE:
-                        return False
-
+                if event.key == pygame.K_ESCAPE:
+                    return False
+                if event.key == pygame.K_p:
+                    self.pause = not self.pause
             elif event.type == pygame.QUIT:
                 return False
 
