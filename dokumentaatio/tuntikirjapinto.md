@@ -16,5 +16,6 @@
 | 29.11.| 2    | Tests
 | 29.11.| 1    | Refactoring & upgrades
 |  3.12.| 3    | Making piece rotation finally work as intended
-|yht    | 36   | |
+|  3.12.| 2    | Refactoring, logic upgrades
+|yht    | 38   | |
 
