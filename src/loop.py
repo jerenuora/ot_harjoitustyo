@@ -39,8 +39,10 @@ class Loop:
                         self._timer = 0
                     if event.key == pygame.K_DOWN:
                         self._gamestate.move(y_coord=32)
-                    if event.key == pygame.K_m:
-                        self._gamestate.move(y_coord=-32)
+
+                    if event.key == pygame.K_SPACE:
+                        while not self._gamestate.check_for_collision():
+                            self._gamestate.move(y_coord=32)
                         self._timer = 0
                     if event.key == pygame.K_UP:
                         self._gamestate.rotate()
