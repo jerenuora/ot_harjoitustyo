@@ -18,5 +18,6 @@
 |  3.12.| 3    | Making piece rotation finally work as intended
 |  3.12.| 2    | Refactoring, logic upgrades
 |  4.12.| 1    | Added gamegrid boundaries, refactoring
-|yht    | 39   | |
+|  4.12.| 1    | Trying to prevent pieces moving inside eachother
+|yht    | 40   | |
 
