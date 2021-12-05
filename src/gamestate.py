@@ -30,7 +30,7 @@ class GameState:
         self.add_all_sprites()
         self.spawn_new_piece()
         self.prev_move = ""
-        self.next_piece = ""
+        self.next_piece = choice(SHAPES)
 
     def move(self, x_coord=0, y_coord=0, user="HUMAN"):
         if not self.enforce_right_boundary(self.pieces) and x_coord >= 0:
