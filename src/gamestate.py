@@ -18,6 +18,8 @@ SHAPES = [
 
 
 class GameState:
+    """A class that keeps track of the state of the gamepieces and handles manipulating them
+    """
     def __init__(self):
         self.all_sprites = pygame.sprite.Group()
         self.pieces = pygame.sprite.Group()
@@ -28,27 +30,32 @@ class GameState:
         self.add_all_sprites()
         self.spawn_new_piece()
         self.prev_move = ""
+        self.next_piece = ""
 
-    def move(self, x_coord=0, y_coord=0,user="HUMAN"):
+    def move(self, x_coord=0, y_coord=0, user="HUMAN"):
         if not self.enforce_right_boundary(self.pieces) and x_coord >= 0:
             for piece in self.pieces:
                 piece.rect.move_ip(x_coord, y_coord)
             if user == "HUMAN":
-                self.save_prev_move(x_coord,y_coord)
+                self.save_prev_move(x_coord, y_coord)
         elif not self.enforce_left_boundary(self.pieces) and x_coord <= 0:
             for piece in self.pieces:
                 piece.rect.move_ip(x_coord, y_coord)
             if user == "HUMAN":
-                self.save_prev_move(x_coord,y_coord)
+                self.save_prev_move(x_coord, y_coord)
 
-    def enforce_right_boundary(self,pieces):
+    def enforce_right_boundary(self, pieces):
         max_x = max([piece.rect.x for piece in pieces])
-        if max_x > 762:
+        if max_x > 763:
             return True
-    def enforce_left_boundary(self,pieces):
-        if min([piece.rect.x for piece in pieces]) < 373:
+        return False
+
+    def enforce_left_boundary(self, pieces):
+        if min([piece.rect.x for piece in pieces]) < 370:
             return True
-    def save_prev_move(self,x_coord, y_coord):
+        return False
+
+    def save_prev_move(self, x_coord, y_coord):
         if y_coord == 32:
             self.prev_move = "DOWN"
         if x_coord == 32:
@@ -78,12 +85,11 @@ class GameState:
                 self.move(x_coord=0, y_coord=-32)
                 self.fallen.add(self.pieces)
                 self.spawn_new_piece()
-                
 
             if self.prev_move == "LEFT":
-                self.move(x_coord=32,user="SYSTEM")
+                self.move(x_coord=32, user="SYSTEM")
             if self.prev_move == "RIGHT":
-                self.move(x_coord=-32,user="SYSTEM")
+                self.move(x_coord=-32, user="SYSTEM")
             return True
 
         if pygame.sprite.groupcollide(self.pieces, self.bottom, False, False):

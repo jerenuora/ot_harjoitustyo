@@ -1,6 +1,7 @@
 import pygame
 from ui.draw_display import draw_display
 
+
 class Loop:
     def __init__(self, gamestate, display):
         self._gamestate = gamestate
@@ -17,11 +18,11 @@ class Loop:
 
             if not self.pause:
                 self._gamestate.check_for_collision()
-                draw_display(self._gamestate,self._display)
+                draw_display(self._gamestate, self._display)
                 self._drop_piece()
                 self._clock.tick(6)
             else:
-                self._draw_display()
+                draw_display(self._gamestate, self._display)
 
     def _eventhandler(self):
         for event in pygame.event.get():
@@ -45,7 +46,6 @@ class Loop:
                     self.pause = not self.pause
             elif event.type == pygame.QUIT:
                 return False
-
 
     def _drop_piece(self):
         self._timer += self._clock.get_time()
