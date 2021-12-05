@@ -27,15 +27,20 @@ class GameState:
         self.bottom.add(Bottom())
         self.add_all_sprites()
         self.spawn_new_piece()
+        self.prev_move = ""
 
-    def move(self, x_coord=0, y_coord=0):
+    def move(self, x_coord=0, y_coord=0,user="HUMAN"):
         if not self.enforce_right_boundary(self.pieces) and x_coord >= 0:
             for piece in self.pieces:
                 piece.rect.move_ip(x_coord, y_coord)
+            if user == "HUMAN":
+                self.save_prev_move(x_coord,y_coord)
         elif not self.enforce_left_boundary(self.pieces) and x_coord <= 0:
             for piece in self.pieces:
                 piece.rect.move_ip(x_coord, y_coord)
-                
+            if user == "HUMAN":
+                self.save_prev_move(x_coord,y_coord)
+
     def enforce_right_boundary(self,pieces):
         max_x = max([piece.rect.x for piece in pieces])
         if max_x > 762:
@@ -43,6 +48,13 @@ class GameState:
     def enforce_left_boundary(self,pieces):
         if min([piece.rect.x for piece in pieces]) < 373:
             return True
+    def save_prev_move(self,x_coord, y_coord):
+        if y_coord == 32:
+            self.prev_move = "DOWN"
+        if x_coord == 32:
+            self.prev_move = "RIGHT"
+        if x_coord == -32:
+            self.prev_move = "LEFT"
 
     def rotate(self):
         min_x, min_y = 10000, 10000
@@ -62,9 +74,16 @@ class GameState:
     def check_for_collision(self):
 
         if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
-            self.move(x_coord=0, y_coord=-32)
-            self.fallen.add(self.pieces)
-            self.spawn_new_piece()
+            if self.prev_move == "DOWN":
+                self.move(x_coord=0, y_coord=-32)
+                self.fallen.add(self.pieces)
+                self.spawn_new_piece()
+                
+
+            if self.prev_move == "LEFT":
+                self.move(x_coord=32,user="SYSTEM")
+            if self.prev_move == "RIGHT":
+                self.move(x_coord=-32,user="SYSTEM")
             return True
 
         if pygame.sprite.groupcollide(self.pieces, self.bottom, False, False):
