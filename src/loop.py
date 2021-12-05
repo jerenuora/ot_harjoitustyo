@@ -1,6 +1,5 @@
 import pygame
-from game_grid import draw_grid
-
+from ui.draw_display import draw_display
 
 class Loop:
     def __init__(self, gamestate, display):
@@ -18,8 +17,8 @@ class Loop:
 
             if not self.pause:
                 self._gamestate.check_for_collision()
-                self._draw_display()
-                self.drop_piece()
+                draw_display(self._gamestate,self._display)
+                self._drop_piece()
                 self._clock.tick(6)
             else:
                 self._draw_display()
@@ -37,7 +36,7 @@ class Loop:
                     if event.key == pygame.K_DOWN:
                         self._gamestate.move(y_coord=32)
                     if event.key == pygame.K_SPACE:
-                        self.drop_to_bottom()
+                        self._drop_to_bottom()
                     if event.key == pygame.K_UP:
                         self._gamestate.rotate()
                 if event.key == pygame.K_ESCAPE:
@@ -47,18 +46,14 @@ class Loop:
             elif event.type == pygame.QUIT:
                 return False
 
-    def _draw_display(self):
-        self._gamestate.all_sprites.draw(self._display)
-        draw_grid(self._display)
-        pygame.display.update()
 
-    def drop_piece(self):
+    def _drop_piece(self):
         self._timer += self._clock.get_time()
         if self._timer > 600:
             self._gamestate.move(y_coord=32)
             self._timer = 0
 
-    def drop_to_bottom(self):
+    def _drop_to_bottom(self):
         while not self._gamestate.check_for_collision():
             self._gamestate.move(y_coord=32)
         self._timer = 0

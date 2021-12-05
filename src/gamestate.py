@@ -29,8 +29,20 @@ class GameState:
         self.spawn_new_piece()
 
     def move(self, x_coord=0, y_coord=0):
-        for piece in self.pieces:
-            piece.rect.move_ip(x_coord, y_coord)
+        if not self.enforce_right_boundary(self.pieces) and x_coord >= 0:
+            for piece in self.pieces:
+                piece.rect.move_ip(x_coord, y_coord)
+        elif not self.enforce_left_boundary(self.pieces) and x_coord <= 0:
+            for piece in self.pieces:
+                piece.rect.move_ip(x_coord, y_coord)
+                
+    def enforce_right_boundary(self,pieces):
+        max_x = max([piece.rect.x for piece in pieces])
+        if max_x > 762:
+            return True
+    def enforce_left_boundary(self,pieces):
+        if min([piece.rect.x for piece in pieces]) < 373:
+            return True
 
     def rotate(self):
         min_x, min_y = 10000, 10000
