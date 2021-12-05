@@ -17,5 +17,6 @@
 | 29.11.| 1    | Refactoring & upgrades
 |  3.12.| 3    | Making piece rotation finally work as intended
 |  3.12.| 2    | Refactoring, logic upgrades
-|yht    | 38   | |
+|  4.12.| 1    | Added gamegrid boundaries, refactoring
+|yht    | 39   | |
 
