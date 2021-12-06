@@ -8,8 +8,7 @@ class TestGamestate(unittest.TestCase):
         self.gamestate = GameState()
 
     def test_collision_fallen(self):
-        a_piece = creator(self.gamestate.next_piece, 540, 100)
-        self.gamestate.move(y_coord=100)
+        a_piece = creator(self.gamestate.next_piece, 540, 10)
         self.gamestate.fallen.add(a_piece)
 
         self.assertTrue(self.gamestate.check_for_collision())
@@ -57,4 +56,4 @@ class TestGamestate(unittest.TestCase):
         for i in range(20):
             self.gamestate.move(32, 0)
         self.assertEqual(
-            (732), (min([piece.rect.x for piece in gamepieces])))
+            (764), (max([piece.rect.x for piece in gamepieces])))
