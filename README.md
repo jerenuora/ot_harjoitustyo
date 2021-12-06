@@ -14,7 +14,7 @@ A course project for Software Development Methods in the University of Helsinki.
 ```bash
 poetry install
 ```
-## Keys:
+## Keys
 Play with arrow keys, drop with space. P for pause. 
 
 ## Commands
