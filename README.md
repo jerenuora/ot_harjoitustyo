@@ -4,6 +4,8 @@ A kind of Tetris written in python with pygame.
 
 A course project for Software Development Methods in the University of Helsinki. 
 
+## Releases
+- [Viikko 5](https://github.com/jerenuora/ot_harjoitustyo/releases/tag/viikko5)
 
 ## Documentation
 - [Tuntikirjanpito](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/tuntikirjapinto.md)
