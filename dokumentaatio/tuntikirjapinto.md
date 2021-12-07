@@ -19,5 +19,6 @@
 |  3.12.| 2    | Refactoring, logic upgrades
 |  4.12.| 1    | Added gamegrid boundaries, refactoring
 |  4.12.| 1    | Trying to prevent pieces moving inside eachother
+|  6.12.| 1    | Some small fixes
 |yht    | 40   | |
 
