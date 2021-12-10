@@ -22,5 +22,6 @@
 |  6.12.| 1    | Some small fixes
 | 10.12.| 1    | Docstring
 | 10.12.| 1    | Added play/pause buttons
-|yht    | 42   | |
+| 10.12.| 2    | Trying to make pieces not overlap
+|yht    | 44   | |
 
