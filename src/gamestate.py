@@ -125,7 +125,7 @@ class GameState:
         self.pieces.add(rotator(self.next_piece, min_x, min_y, orientation))
         self.add_all_sprites()
 
-    def check_for_collision(self):
+    def check_for_collision(self,x_coord=0,y_coord=0):
         """Checks if the gamepiece has collided with the bottom, or the old fallen pieces
 
         When a collision is detected, adds gamepiece to the fallen-pieces spritegroup,
@@ -134,23 +134,46 @@ class GameState:
         Returns:
             Bool: True if a collision happened, False if not
         """
+        a_copy = self.pieces.copy()
+        # for piece in self.pieces:
+        #     piece.rect.move_ip(x_coord, y_coord)
+
 
         if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
-            if self.prev_move == "DOWN":
-                self.move(x_coord=0, y_coord=-32)
-                self.fallen.add(self.pieces)
-                self.spawn_new_piece()
-
-            if self.prev_move == "LEFT":
-                self.move(x_coord=32, user="SYSTEM")
-            if self.prev_move == "RIGHT":
-                self.move(x_coord=-32, user="SYSTEM")
-            return True
-
-        if pygame.sprite.groupcollide(self.pieces, self.bottom, False, False):
+            for piece in self.pieces:
+                piece.rect.move_ip(-x_coord, -y_coord)
             self.fallen.add(self.pieces)
-            self.spawn_new_piece()
+
+            #self.spawn_new_piece()
             return True
+
+        elif pygame.sprite.groupcollide(a_copy, self.bottom, False, False):
+
+            self.fallen.add(self.pieces)
+            #self.spawn_new_piece()
+            return True
+        return False
+        
+    def check_for_collision_sideways(self,x_coord=0,y_coord=0):
+        """Checks if the gamepiece has collided with the bottom, or the old fallen pieces
+
+        When a collision is detected, adds gamepiece to the fallen-pieces spritegroup,
+        and calls a function to create a new gamepiece
+
+        Returns:
+            Bool: True if a collision happened, False if not
+        """
+        for piece in self.pieces:
+                piece.rect.move_ip(x_coord, y_coord)
+
+
+        if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
+            for piece in self.pieces:
+                piece.rect.move_ip(-x_coord, -y_coord)
+            return True
+        for piece in self.pieces:
+            piece.rect.move_ip(-x_coord, -y_coord)
+
         return False
 
     def spawn_new_piece(self):
@@ -178,6 +201,7 @@ class GameState:
             self.background,
             self.button,
             self.bottom,
+            self.fallen,
+
             self.pieces,
-            self.fallen
         )
