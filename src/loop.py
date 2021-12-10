@@ -17,7 +17,7 @@ class Loop:
         self._clock = pygame.time.Clock()
         self.prev_keystroke = "RIGHT"
         self._timer = 0
-        self.pause = False
+        self.pause = True
 
     def start(self):
         """The actual gameplay loop
@@ -59,6 +59,11 @@ class Loop:
                     return False
                 if event.key == pygame.K_p:
                     self.pause = not self.pause
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                click_point = pygame.mouse.get_pos()
+                if self._gamestate.button.rect.collidepoint(click_point):
+                    self.pause = not self.pause
+                    self._gamestate.change_button()
             elif event.type == pygame.QUIT:
                 return False
 

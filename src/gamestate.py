@@ -2,6 +2,7 @@ from random import choice
 import pygame
 from sprites.bottom import Bottom
 from sprites.background import Board
+from sprites.buttons import Button
 from sprite_operations.piece_creator import creator
 from sprite_operations.piece_rotator import rotator
 
@@ -29,6 +30,7 @@ class GameState:
         self.pieces = pygame.sprite.Group()
         self.fallen = pygame.sprite.Group()
         self.background = Board()
+        self.button = Button(play=True)
         self.bottom = pygame.sprite.Group()
         self.bottom.add(Bottom())
         self.add_all_sprites()
@@ -164,12 +166,17 @@ class GameState:
         """
         self.next_piece = choice(SHAPES)
 
+    def change_button(self):
+        self.button = Button(play=not self.button.play)
+        self.add_all_sprites()
+
     def add_all_sprites(self):
         """Add all the different sprites and spritegroups to the group that is then rendered in Loop
         """
         self.all_sprites.empty()
         self.all_sprites.add(
             self.background,
+            self.button,
             self.bottom,
             self.pieces,
             self.fallen
