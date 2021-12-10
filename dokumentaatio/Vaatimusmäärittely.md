@@ -14,7 +14,7 @@ vaikeustasoja. Lisäksi jonkinlainen leaderboad/scoreboard
 
 ### Perustoiminnallisuus
 - Peli alkaa tyhjältä laudalta ---------------------------------------------TEHTY
-- Painikkeet aloitukselle, ja pelin ollessa käynnissä pauselle
+- Painikkeet aloitukselle, ja pelin ollessa käynnissä pauselle--------------TEHTY
 - Palasia tippuu yksitellen pelin yläreunasta, ohjataan nuolinäppäimillä ---TEHTY
 - Palasia voi kääntää -----------------------------------------------------TEHTY
 - Palasia voi tiputtaa vauhdilla -----------------------------------------TEHTY
