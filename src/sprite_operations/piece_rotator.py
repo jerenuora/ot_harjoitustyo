@@ -6,6 +6,17 @@ SHAPES = load_shapes()
 
 
 def rotator(shape, spot_x, spot_y, orientation):
+    """Take the location and oriantetion of a gamepiece and return a new one, rotated
+
+    Args:
+        shape (str): The shape of the gamepiece, to get its instructions from the json
+        spot_x (int): x-coordinates
+        spot_y (int): y-coordinates
+        orientation (str): The old orientation of the gamepiece
+
+    Returns:
+        spritegroup: The new gamepiece
+    """
 
     piece = pygame.sprite.Group()
     for i in range(0, 8, 2):

@@ -5,6 +5,8 @@ from loop import Loop
 
 
 def main():
+    """Main function to set up pygame, a display area and to call the gameplay loop
+    """
 
     display_x = 1145
     display_y = 800
