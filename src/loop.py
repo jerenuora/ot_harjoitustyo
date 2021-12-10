@@ -59,6 +59,8 @@ class Loop:
                     return False
                 if event.key == pygame.K_p:
                     self.pause = not self.pause
+                    self._gamestate.change_button()
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 click_point = pygame.mouse.get_pos()
                 if self._gamestate.button.rect.collidepoint(click_point):
