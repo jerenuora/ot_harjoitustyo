@@ -6,7 +6,7 @@ class Block(pygame.sprite.Sprite):
     """ Class for a single block of gamepiece. Many of these together form a whole gamepice
     """
 
-    def __init__(self, x_coord=0, y_coord=0, shape="", orientation="RIGHT"):
+    def __init__(self, x_coord=0, y_coord=0, shape="", orientation="DOWN"):
         super().__init__()
         self.image = img_loader("x_block.png")
         self.rect = self.image.get_rect()

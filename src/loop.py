@@ -45,10 +45,10 @@ class Loop:
                 if not self.pause:
                     if event.key == pygame.K_LEFT:
                         self._gamestate.move(x_coord=-32)
-                        self._timer = 0
+                        #self._timer = 0
                     elif event.key == pygame.K_RIGHT:
                         self._gamestate.move(x_coord=32)
-                        self._timer = 0
+                        #self._timer = 0
                     elif event.key == pygame.K_DOWN:
                         self._gamestate.move(y_coord=32)
                     elif event.key == pygame.K_SPACE:
