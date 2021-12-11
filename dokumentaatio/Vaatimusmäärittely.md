@@ -19,13 +19,13 @@ vaikeustasoja. Lisäksi jonkinlainen leaderboad/scoreboard
 - Palasia voi kääntää -----------------------------------------------------TEHTY
 - Palasia voi tiputtaa vauhdilla -----------------------------------------TEHTY
 - Palaset kasaantuvat ---------------------------------------------------TEHTY, hieman buginen vielä
-- Täysi rivi palasia laidasta laitaan katoaa
+- Täysi rivi palasia laidasta laitaan katoaa-----------------------------TEHTY
 - Peli päättyy kasan yltäessä kattoon asti
 
 ## Jatkokehitystä
 
 Ajan salliessa lisätään:
-- Laskuri tuhotuille riveille
+- Laskuri tuhotuille riveille --------TEHTY
 - Esikatselu tuleville paloille
 - Suuntaviivat/putoamiskohta
 - Ajan myötä nopeutuva tahti
