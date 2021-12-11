@@ -82,7 +82,6 @@ class GameState:
             return True
         return False
 
-
     def rotate(self):
         """Calculates the upper leftmost edge of the gamepiece spritegroup
 
@@ -104,7 +103,7 @@ class GameState:
         self.pieces.add(rotator(self.next_piece, min_x, min_y, orientation))
         self.add_all_sprites()
 
-    def check_for_collision(self,x_coord=0,y_coord=0):
+    def check_for_collision(self, x_coord=0, y_coord=0):
         """Checks if the gamepiece has collided with the bottom, or the old fallen pieces
 
         When a collision is detected, adds gamepiece to the fallen-pieces spritegroup,
@@ -113,7 +112,6 @@ class GameState:
         Returns:
             Bool: True if a collision happened, False if not
         """
-
 
         if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
             for piece in self.pieces:
@@ -130,8 +128,8 @@ class GameState:
             self.spawn_new_piece()
             return True
         return False
-        
-    def check_for_collision_sideways(self,x_coord=0,y_coord=0):
+
+    def check_for_collision_sideways(self, x_coord=0, y_coord=0):
         """Checks if the gamepiece has collided with the old fallen pieces sideways
 
         When a collision is detected, the gamepiece is moved backwards one step
@@ -140,7 +138,7 @@ class GameState:
             Bool: True if a collision happened, False if not
         """
         for piece in self.pieces:
-                piece.rect.move_ip(x_coord, y_coord)
+            piece.rect.move_ip(x_coord, y_coord)
         if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
             for piece in self.pieces:
                 piece.rect.move_ip(-x_coord, -y_coord)
@@ -150,13 +148,12 @@ class GameState:
 
         return False
 
-
     def check_for_full_row(self):
         """Check to see if a row is full of fallen gamepieces, and if so, delete the row
         """
         table = {}
         sum_of_x_coordinates_for_full_row = 7784
-        rows = [(piece.rect.x,piece.rect.y) for piece in self.fallen]
+        rows = [(piece.rect.x, piece.rect.y) for piece in self.fallen]
         for row in rows:
             if row[1] in table:
                 table[row[1]] += row[0]
@@ -168,9 +165,9 @@ class GameState:
                     if piece.rect.y == y_coord:
                         piece.kill()
                     elif piece.rect.y < y_coord:
-                        piece.rect.move_ip(0,32)
+                        piece.rect.move_ip(0, 32)
                 self.score += 1
-                
+
     def spawn_new_piece(self):
         """Calls the function to pick a new shape for a gampiece,
         and a function to create a gamepiece, and adds it to the spritegroup to be rendered

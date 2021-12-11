@@ -5,6 +5,7 @@ from ui.draw_display import draw_display
 class Loop:
     """ A gameloop to render the screen, advance gameplay and handle keypresses.
     """
+
     def __init__(self, gamestate, display):
         """Set up the loop
 
@@ -27,7 +28,7 @@ class Loop:
                 break
 
             if not self.pause:
-                #self._gamestate.check_for_collision()
+                # self._gamestate.check_for_collision()
                 draw_display(self._gamestate, self._display)
                 self._gamestate.check_for_full_row()
                 self._drop_piece()
@@ -84,7 +85,6 @@ class Loop:
         while not self._gamestate.check_for_collision(y_coord=32):
             self._gamestate.move(y_coord=32)
 
-
     def drop_once(self):
         if not self._gamestate.check_for_collision(y_coord=32):
             self._gamestate.move(y_coord=32)
@@ -93,6 +93,6 @@ class Loop:
         if not self._gamestate.check_for_collision_sideways(x_coord=-32):
             self._gamestate.move(x_coord=-32)
 
-    def right_once(self):        
+    def right_once(self):
         if not self._gamestate.check_for_collision_sideways(x_coord=32):
             self._gamestate.move(x_coord=32)
