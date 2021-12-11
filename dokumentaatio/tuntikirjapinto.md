@@ -23,5 +23,7 @@
 | 10.12.| 1    | Docstring
 | 10.12.| 1    | Added play/pause buttons
 | 10.12.| 2    | Trying to make pieces not overlap
-|yht    | 44   | |
+| 11.12.| 1    | Refactoring
+| 11.12.| 3    | Detection and deletion of full rows, score keeping
+|yht    | 48   | |
 
