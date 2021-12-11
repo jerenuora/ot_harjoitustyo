@@ -29,9 +29,11 @@ class Loop:
             if not self.pause:
                 #self._gamestate.check_for_collision()
                 draw_display(self._gamestate, self._display)
-                self._clock.tick(60)
 
                 self._drop_piece()
+
+                self._clock.tick(60)
+
             else:
                 draw_display(self._gamestate, self._display)
 
@@ -46,10 +48,8 @@ class Loop:
                 if not self.pause:
                     if event.key == pygame.K_LEFT:
                         self.left_once()
-                        #self._timer = 0
                     elif event.key == pygame.K_RIGHT:
                         self.right_once()
-                        #self._timer = 0
                     elif event.key == pygame.K_DOWN:
                         self.drop_once()
                     elif event.key == pygame.K_SPACE:
@@ -76,29 +76,23 @@ class Loop:
         self._timer += self._clock.get_time()
         if self._timer > 900:
             self.drop_once()
-            # self._timer = 0
+            self._timer = 0
 
     def drop_to_bottom(self):
-        """Drop a gamepiece to the bottom
+        """Drop a gamepiece until a collision occurs
         """
         while not self._gamestate.check_for_collision(y_coord=32):
             self._gamestate.move(y_coord=32)
-        self._gamestate.spawn_new_piece()
-        self._timer = 0
+
 
     def drop_once(self):
         if not self._gamestate.check_for_collision(y_coord=32):
             self._gamestate.move(y_coord=32)
-        else:
-            self._gamestate.spawn_new_piece()
-        self._timer = 0
 
     def left_once(self):
         if not self._gamestate.check_for_collision_sideways(x_coord=-32):
             self._gamestate.move(x_coord=-32)
-        self._timer = 0
 
     def right_once(self):        
         if not self._gamestate.check_for_collision_sideways(x_coord=32):
             self._gamestate.move(x_coord=32)
-        self._timer = 0

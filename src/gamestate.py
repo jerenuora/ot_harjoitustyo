@@ -35,27 +35,20 @@ class GameState:
         self.bottom.add(Bottom())
         self.add_all_sprites()
         self.spawn_new_piece()
-        self.prev_move = ""
 
-    def move(self, x_coord=0, y_coord=0, user="HUMAN"):
+    def move(self, x_coord=0, y_coord=0):
         """Moves the gamepiece
 
         Args:
             x_coord (int, optional): Amount of movement in the x-plane. Defaults to 0.
             y_coord (int, optional): Amount of movement in the y-plane. Defaults to 0.
-            user (str, optional): To see wether the move-command is coming from human-user or
-                                    the game-logig function. Defaults to "HUMAN".
         """
         if not self.enforce_right_boundary(self.pieces) and x_coord >= 0:
             for piece in self.pieces:
                 piece.rect.move_ip(x_coord, y_coord)
-            if user == "HUMAN":
-                self.save_prev_move(x_coord, y_coord)
         elif not self.enforce_left_boundary(self.pieces) and x_coord <= 0:
             for piece in self.pieces:
                 piece.rect.move_ip(x_coord, y_coord)
-            if user == "HUMAN":
-                self.save_prev_move(x_coord, y_coord)
 
     def enforce_right_boundary(self, pieces):
         """Making sure the gamepiece doesn't go over the right edge.
@@ -88,21 +81,6 @@ class GameState:
             return True
         return False
 
-    def save_prev_move(self, x_coord, y_coord):
-        """Saves the previous direction the gampiece moved.
-
-        Used to keep the pieces from clipping inside eachother.
-
-        Args:
-            x_coord (int): The x-coordinate of the previous move.
-            y_coord (int): The y-coordinate of the previous move.
-        """
-        if y_coord == 32:
-            self.prev_move = "DOWN"
-        if x_coord == 32:
-            self.prev_move = "RIGHT"
-        if x_coord == -32:
-            self.prev_move = "LEFT"
 
     def rotate(self):
         """Calculates the upper leftmost edge of the gamepiece spritegroup
@@ -134,39 +112,34 @@ class GameState:
         Returns:
             Bool: True if a collision happened, False if not
         """
-        a_copy = self.pieces.copy()
-        # for piece in self.pieces:
-        #     piece.rect.move_ip(x_coord, y_coord)
 
 
         if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
             for piece in self.pieces:
                 piece.rect.move_ip(-x_coord, -y_coord)
             self.fallen.add(self.pieces)
-
-            #self.spawn_new_piece()
+            self.add_all_sprites()
+            self.spawn_new_piece()
             return True
 
-        elif pygame.sprite.groupcollide(a_copy, self.bottom, False, False):
+        elif pygame.sprite.groupcollide(self.pieces, self.bottom, False, False):
 
             self.fallen.add(self.pieces)
-            #self.spawn_new_piece()
+            self.add_all_sprites()
+            self.spawn_new_piece()
             return True
         return False
         
     def check_for_collision_sideways(self,x_coord=0,y_coord=0):
-        """Checks if the gamepiece has collided with the bottom, or the old fallen pieces
+        """Checks if the gamepiece has collided with the old fallen pieces sideways
 
-        When a collision is detected, adds gamepiece to the fallen-pieces spritegroup,
-        and calls a function to create a new gamepiece
+        When a collision is detected, the gamepiece is moved backwards one step
 
         Returns:
             Bool: True if a collision happened, False if not
         """
         for piece in self.pieces:
                 piece.rect.move_ip(x_coord, y_coord)
-
-
         if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
             for piece in self.pieces:
                 piece.rect.move_ip(-x_coord, -y_coord)
@@ -182,7 +155,7 @@ class GameState:
         """
         self.pick_next()
         self.pieces = creator(self.next_piece, 540, 10)
-        self.all_sprites.add(self.pieces)
+        self.add_all_sprites()
 
     def pick_next(self):
         """Pick a new shape for gamepiece
@@ -201,7 +174,6 @@ class GameState:
             self.background,
             self.button,
             self.bottom,
-            self.fallen,
-
             self.pieces,
+            self.fallen,
         )
