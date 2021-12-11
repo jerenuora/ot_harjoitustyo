@@ -35,6 +35,7 @@ class GameState:
         self.bottom.add(Bottom())
         self.add_all_sprites()
         self.spawn_new_piece()
+        self.score = 0
 
     def move(self, x_coord=0, y_coord=0):
         """Moves the gamepiece
@@ -149,6 +150,27 @@ class GameState:
 
         return False
 
+
+    def check_for_full_row(self):
+        """Check to see if a row is full of fallen gamepieces, and if so, delete the row
+        """
+        table = {}
+        sum_of_x_coordinates_for_full_row = 7784
+        rows = [(piece.rect.x,piece.rect.y) for piece in self.fallen]
+        for row in rows:
+            if row[1] in table:
+                table[row[1]] += row[0]
+            else:
+                table[row[1]] = row[0]
+        for y_coord, x_coord in table.items():
+            if x_coord == sum_of_x_coordinates_for_full_row:
+                for piece in self.fallen:
+                    if piece.rect.y == y_coord:
+                        piece.kill()
+                    elif piece.rect.y < y_coord:
+                        piece.rect.move_ip(0,32)
+                self.score += 1
+                
     def spawn_new_piece(self):
         """Calls the function to pick a new shape for a gampiece,
         and a function to create a gamepiece, and adds it to the spritegroup to be rendered

@@ -29,7 +29,7 @@ class Loop:
             if not self.pause:
                 #self._gamestate.check_for_collision()
                 draw_display(self._gamestate, self._display)
-
+                self._gamestate.check_for_full_row()
                 self._drop_piece()
 
                 self._clock.tick(60)
