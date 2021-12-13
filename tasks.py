@@ -14,7 +14,7 @@ def coverage(ctx):
 
 @task
 def coverage_report(ctx):
-    ctx.run("coverage html")
+    ctx.run("coverage html & coverage report -m")
 
 @task
 def lint(ctx):

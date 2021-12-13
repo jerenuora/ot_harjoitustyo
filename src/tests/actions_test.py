@@ -1,29 +1,15 @@
 import unittest
 import pygame
 from gamestate import GameState
-from loop import Loop
+from sprite_operations.actions import Actions
 from sprite_operations.piece_creator import creator
 from sprites.block import Block
 
-display_x = 0
-display_y = 0
-display = pygame.display.set_mode((display_x, display_y))
-pygame.display.set_caption("TETRIS")
-pygame.init()
 
-class TestLoop(unittest.TestCase):
+class TestActions(unittest.TestCase):
     def setUp(self):
         self.gamestate = GameState()
-        self.loop = Loop(self.gamestate,display)
-
-
-
-
-
-
-
-
-
+        self.actions = Actions(self.gamestate)
 
 
     def test_left_once(self):
@@ -33,7 +19,7 @@ class TestLoop(unittest.TestCase):
             self.gamestate.fallen.add(Block(400,y_coord))
 
         for i in range(20):
-            self.loop.left_once()
+            self.actions.left_once()
         
         self.assertGreater(            
             (min([piece.rect.x for piece in gamepieces])),(400))
@@ -45,7 +31,7 @@ class TestLoop(unittest.TestCase):
             self.gamestate.fallen.add(Block(700,y_coord))
 
         for i in range(20):
-            self.loop.right_once()
+            self.actions.right_once()
         
         self.assertLess(  
             (max([piece.rect.x for piece in gamepieces])),(700))
@@ -55,7 +41,7 @@ class TestLoop(unittest.TestCase):
         positions = [piece.rect.y for piece in gamepieces]
 
         for i in range(5):
-            self.loop.drop_once()
+            self.actions.drop_once()
         
         new_positions = [piece.rect.y for piece in gamepieces]
         
@@ -66,7 +52,7 @@ class TestLoop(unittest.TestCase):
         gamepieces = self.gamestate.pieces.sprites()
 
         for i in range(50):
-            self.loop.drop_once()
+            self.actions.drop_once()
         
         new_positions = [piece.rect.y for piece in gamepieces]
         
@@ -76,7 +62,7 @@ class TestLoop(unittest.TestCase):
     def test_drop_to_bottom(self):
         gamepieces = self.gamestate.pieces.sprites()
 
-        self.loop.drop_to_bottom()
+        self.actions.drop_to_bottom()
         
         new_positions = [piece.rect.y for piece in gamepieces]
         
