@@ -1,6 +1,7 @@
 import unittest
 from gamestate import GameState
 from sprite_operations.piece_creator import creator
+from sprites.block import Block
 
 
 class TestGamestate(unittest.TestCase):

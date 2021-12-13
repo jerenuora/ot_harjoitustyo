@@ -13,12 +13,12 @@ class Button(pygame.sprite.Sprite):
             x_coord (int, optional): x-coordinate. Defaults to 20.
             y_coord (int, optional): y-coordinate. Defaults to 20.
         """
+        super().__init__()
         self.play = play
         if play:
             button = "play"
         if not play:
             button = "pause"
-        super().__init__()
         self.image = img_loader(button + ".png")
         self.rect = self.image.get_rect()
 

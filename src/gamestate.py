@@ -31,8 +31,7 @@ class GameState:
         self.fallen = pygame.sprite.Group()
         self.background = Board()
         self.button = Button(play=True)
-        self.bottom = pygame.sprite.Group()
-        self.bottom.add(Bottom())
+        self.bottom = Bottom()
         self.add_all_sprites()
         self.spawn_new_piece()
         self.score = 0
@@ -121,7 +120,7 @@ class GameState:
             self.spawn_new_piece()
             return True
 
-        elif pygame.sprite.groupcollide(self.pieces, self.bottom, False, False):
+        if pygame.sprite.spritecollideany(self.bottom,self.pieces):
 
             self.fallen.add(self.pieces)
             self.add_all_sprites()

@@ -86,13 +86,21 @@ class Loop:
             self._gamestate.move(y_coord=32)
 
     def drop_once(self):
+        """Drop a gamepiece for one block length, if no collision occurs
+        """
         if not self._gamestate.check_for_collision(y_coord=32):
             self._gamestate.move(y_coord=32)
 
     def left_once(self):
+        """Move a gamepiece left for one block length, if no collision occurs
+        """
+
         if not self._gamestate.check_for_collision_sideways(x_coord=-32):
             self._gamestate.move(x_coord=-32)
 
     def right_once(self):
+        """Move a gamepiece right for one block length, if no collision occurs
+        """
+
         if not self._gamestate.check_for_collision_sideways(x_coord=32):
             self._gamestate.move(x_coord=32)
