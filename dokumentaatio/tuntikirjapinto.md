@@ -25,5 +25,6 @@
 | 10.12.| 2    | Trying to make pieces not overlap
 | 11.12.| 1    | Refactoring
 | 11.12.| 3    | Detection and deletion of full rows, score keeping
-|yht    | 48   | |
+| 13.12.| 4    | Changes to tests, refactoring
+|yht    | 52   | |
 
