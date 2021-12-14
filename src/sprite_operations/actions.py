@@ -1,7 +1,5 @@
 
 
-
-
 class Actions:
     """A class for performing gamepiece actions when called upon by loop
     """
@@ -51,3 +49,9 @@ class Actions:
 
         if not self._gamestate.check_for_collision_sideways(x_coord=32):
             self._gamestate.move(x_coord=32)
+
+    def rotate(self):
+        """Rotate a gamepiece
+        """
+
+        self._gamestate.rotate()

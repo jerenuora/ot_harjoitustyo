@@ -32,7 +32,6 @@ class GameState:
         self.background = Board()
         self.button = Button(play=True)
         self.bottom = Bottom()
-        self.add_all_sprites()
         self.spawn_new_piece()
         self.score = 0
 
@@ -181,6 +180,7 @@ class GameState:
         self.next_piece = choice(SHAPES)
 
     def change_button(self):
+        """Change the play button from "PLAY" to "PAUSE" and back"""
         self.button = Button(play=not self.button.play)
         self.add_all_sprites()
 

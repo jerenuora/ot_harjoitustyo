@@ -68,3 +68,4 @@ class TestActions(unittest.TestCase):
         
         self.assertEqual(
             714, max(new_positions))
+

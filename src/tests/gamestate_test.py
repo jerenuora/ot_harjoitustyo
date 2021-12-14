@@ -1,5 +1,10 @@
 import unittest
 from gamestate import GameState
+
+
+from loop import Loop
+import pygame
+
 from sprite_operations.actions import Actions
 from sprite_operations.piece_creator import creator
 
@@ -61,28 +66,35 @@ class TestGamestate(unittest.TestCase):
             (764), (max([piece.rect.x for piece in gamepieces])))
 
     def test_full_row_disappears(self):
+
         self.gamestate.pieces.empty()
         self.gamestate.pieces.add(creator("SHAPE_I",412,10))
         self.actions.drop_to_bottom()
+        self.gamestate.pieces.empty()
 
         self.gamestate.pieces.add(creator("SHAPE_I",540,10))
         self.actions.drop_to_bottom()
+        self.gamestate.pieces.empty()
 
         self.gamestate.pieces.add(creator("SHAPE_I",668,10))
         self.actions.drop_to_bottom()
+        self.gamestate.pieces.empty()
 
         self.gamestate.pieces.add(creator("SHAPE_I",412,10))
         self.actions.drop_to_bottom()
+        self.gamestate.pieces.empty()
 
         self.gamestate.pieces.add(creator("SHAPE_I",540,10))
         self.actions.drop_to_bottom()
+        self.gamestate.pieces.empty()
 
         self.gamestate.pieces.add(creator("SHAPE_I",668,10))
         self.actions.drop_to_bottom()
+        self.gamestate.pieces.empty()
 
         self.gamestate.pieces.add(creator("SHAPE_O",732,10))
         self.actions.drop_to_bottom()
-        
+
         self.gamestate.check_for_full_row()
 
         self.assertEqual(2, self.gamestate.score)

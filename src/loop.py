@@ -2,6 +2,7 @@ import pygame
 from ui.draw_display import draw_display
 from sprite_operations.actions import Actions
 
+
 class Loop:
     """ A gameloop to render the screen, advance gameplay and handle keypresses.
     """
@@ -57,7 +58,7 @@ class Loop:
                     elif event.key == pygame.K_SPACE:
                         self.actions.drop_to_bottom()
                     elif event.key == pygame.K_UP:
-                        self.gamestate.rotate()
+                        self.actions.rotate()
                 if event.key == pygame.K_ESCAPE:
                     return False
                 if event.key == pygame.K_p:
@@ -71,4 +72,3 @@ class Loop:
                     self.gamestate.change_button()
             elif event.type == pygame.QUIT:
                 return False
-
