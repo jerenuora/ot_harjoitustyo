@@ -1,33 +1,33 @@
-# Vaatimusmäärittely
+# Requirements specification
 
-## Sovelluksen tarkoitus
+## Purpose
 
-Klassinen tetris, eli taivaalta tippuu palikoita jotka kasaantuvat pohjalle,
-ja katoavat täytettyään kokonaisen rivin. 
+Classic tetris, in which tetrominoes fall from the sky and pile up on the bottom,
+disappearing when completing a row
 
-## Käyttäjät
-Ei varsinaisia käyttäjiä, mutta mahdollisesti lisätään ajan salliessa eri
-vaikeustasoja. Lisäksi jonkinlainen leaderboad/scoreboard 
+## Users
+
+No user-roles proper, possibly if time allows will add different difficulty levels. Also a scoreboard/leaderboard of some kind, with usernames
 
 
-## Suunniteltu toiminnallisuus
+## Planned functionality
 
-### Perustoiminnallisuus
-- Peli alkaa tyhjältä laudalta ---------------------------------------------TEHTY
-- Painikkeet aloitukselle, ja pelin ollessa käynnissä pauselle--------------TEHTY
-- Palasia tippuu yksitellen pelin yläreunasta, ohjataan nuolinäppäimillä ---TEHTY
-- Palasia voi kääntää -----------------------------------------------------TEHTY
-- Palasia voi tiputtaa vauhdilla -----------------------------------------TEHTY
-- Palaset kasaantuvat ---------------------------------------------------TEHTY, hieman buginen vielä
-- Täysi rivi palasia laidasta laitaan katoaa-----------------------------TEHTY
-- Peli päättyy kasan yltäessä kattoon asti
+### Basic functionality
+- --DONE-- Game starts with an empty board
+- --DONE-- Buttons to start playing, and while playing to pause game
+- --DONE-- Tetrominoes fall one by one from the top of the game-area
+- --DONE-- Tetrominoes can be rotated
+- --DONE-- Tetrominoes can be dropped to bottom with a press of a key
+- --DONE-- Tetrominoes pile up at the bottom [Slightly buggy]
+- --DONE-- A full row of tetrominoes disappears, and the upper rows move down
+- The game ends when the pile reaches the roof
 
-## Jatkokehitystä
 
-Ajan salliessa lisätään:
-- Laskuri tuhotuille riveille --------TEHTY
-- Esikatselu tuleville paloille
-- Suuntaviivat/putoamiskohta
-- Ajan myötä nopeutuva tahti
-- Eri pelitiloja 
+## Additional funtionality
+
+Given time will be added:
+- --DONE-- A counter for destroyed rows
+- Preview for coming tetrominoes
+- Directional aid/the spot the tetromino will fall
+- Increasing difficulty/pace
 
