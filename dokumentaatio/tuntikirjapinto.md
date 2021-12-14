@@ -26,5 +26,6 @@
 | 11.12.| 1    | Refactoring
 | 11.12.| 3    | Detection and deletion of full rows, score keeping
 | 13.12.| 4    | Changes to tests, refactoring
-|yht    | 52   | |
+| 14.12.| 2    | Tests, lint, refactor
+|yht    | 54   | |
 
