@@ -1,8 +1,8 @@
-# työaikakirjanpito
+# Hours worked
 
 | päivä | aika | työn laatu  |
 | :----:|:-----| :-----|
-| 15.11.| 1    | Vaatimusmäärittely|
+| 15.11.| 1    | Requirements specification|
 | 18.11.| 2    | Setting up poetry project, updating readme
 | 19.11.| 3    | Design, pygame research
 | 19.11.| 3    | Getting started with coding
@@ -27,5 +27,6 @@
 | 11.12.| 3    | Detection and deletion of full rows, score keeping
 | 13.12.| 4    | Changes to tests, refactoring
 | 14.12.| 2    | Tests, lint, refactor
-|yht    | 54   | |
+| 14.12.| 2    | Architecture.md
+|yht    | 56   | |
 
