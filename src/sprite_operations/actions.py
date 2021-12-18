@@ -1,4 +1,4 @@
-
+import pygame
 
 
 class Actions:
@@ -14,16 +14,17 @@ class Actions:
         self._gamestate = gamestate
         self.timer = 0
 
-    def drop_piece(self, clock):
+    def drop_piece(self, level):
         """Countdown to dropping a gamepiece
 
         Args:
             clock (pygame.time.Clock()): A clock to keep track of advanced loop time
         """
-        self.timer += clock.get_time()
-        if self.timer > 900:
+        curr_time = pygame.time.get_ticks()
+        if curr_time - self.timer > level:
+            self.timer = curr_time
+
             self.drop_once()
-            self.timer = 0
 
     def drop_to_bottom(self):
         """Drop a gamepiece until a collision occurs

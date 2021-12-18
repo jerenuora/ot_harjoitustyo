@@ -86,15 +86,13 @@ class GameState:
         and calls the rotator function to create a new, rotated one, in its place
 
         """
-        min_x, min_y = 10000, 10000
-        count = 0
+        min_x, min_y = float('inf'), float('inf')
         orientation = ""
         for piece in self.pieces:
             if piece.rect.x < min_x:
                 min_x = piece.rect.x
             if piece.rect.y < min_y:
                 min_y = piece.rect.y
-            count += 1
             orientation = piece.orientation
         self.pieces.empty()
         self.pieces.add(rotator(self.next_piece, min_x, min_y, orientation))
@@ -166,8 +164,8 @@ class GameState:
                 self.score += 1
 
     def check_for_top_reach(self):
-        if self.check_for_collision():
-            return True
+        # if self.check_for_collision():
+        #     return True
         fallen_ys = [piece.rect.y for piece in self.fallen]
         if len(fallen_ys) > 0:
             highest = min(fallen_ys)

@@ -22,6 +22,7 @@ class Loop:
         self.prev_keystroke = "RIGHT"
         self.pause = True
         self.game_over = False
+        self.level = 600
 
     def start(self):
         """The actual gameplay loop
@@ -36,7 +37,7 @@ class Loop:
                 if self.gamestate.check_for_top_reach():
                     self.pause = not self.pause
                     self.game_over = True
-                self.actions.drop_piece(self._clock)
+                self.actions.drop_piece(self.level)
 
                 self._clock.tick(60)
 
