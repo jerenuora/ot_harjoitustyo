@@ -3,8 +3,7 @@ import pygame
 from sprites.bottom import Bottom
 from sprites.background import Board
 from sprites.buttons import Button
-from sprite_operations.piece_creator import creator
-from sprite_operations.piece_rotator import rotator
+from sprite_operations.operations import creator, rotator
 
 
 SHAPES = [
@@ -165,6 +164,16 @@ class GameState:
                     elif piece.rect.y < y_coord:
                         piece.rect.move_ip(0, 32)
                 self.score += 1
+
+    def check_for_top_reach(self):
+        if self.check_for_collision():
+            return True
+        fallen_ys = [piece.rect.y for piece in self.fallen]
+        if len(fallen_ys) > 0:
+            highest = min(fallen_ys)
+            if highest < 64:
+                return True
+        return False
 
     def spawn_new_piece(self):
         """Calls the function to pick a new shape for a gampiece,

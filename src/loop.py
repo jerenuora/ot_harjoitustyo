@@ -21,6 +21,7 @@ class Loop:
 
         self.prev_keystroke = "RIGHT"
         self.pause = True
+        self.game_over = False
 
     def start(self):
         """The actual gameplay loop
@@ -33,13 +34,19 @@ class Loop:
                 # self._gamestate.check_for_collision()
                 draw_display(self.gamestate, self._display)
                 self.gamestate.check_for_full_row()
+                if self.gamestate.check_for_top_reach():
+                    self.pause = not self.pause
+                    self.game_over = True
+                    pass
                 self.actions.drop_piece(self._clock)
 
                 self._clock.tick(60)
 
-            else:
+            elif self.pause and not self.game_over:
                 draw_display(self.gamestate, self._display)
-
+            if self.game_over:
+                draw_display(self.gamestate, self._display,True)
+                
     def _eventhandler(self):
         """Handling the keys being pressed
 
