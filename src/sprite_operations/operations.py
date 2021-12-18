@@ -3,8 +3,6 @@ from sprite_operations.json_loader import load_shapes
 from sprites.block import Block
 
 
-        
-
 SHAPES = load_shapes()
 
 

@@ -1,7 +1,6 @@
 
 
 
-
 class Actions:
     """A class for performing gamepiece actions when called upon by loop
     """
