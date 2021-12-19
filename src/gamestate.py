@@ -1,5 +1,6 @@
 from random import choice
 import pygame
+
 from sprites.bottom import Bottom
 from sprites.background import Board
 from sprites.buttons import Button

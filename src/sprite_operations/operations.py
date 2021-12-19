@@ -7,6 +7,18 @@ SHAPES = load_shapes()
 
 
 def creator(shape, spot_x, spot_y, direction="DOWN"):
+    """Create new gamepiece given the shape, x,y coordinates and the directional instruction
+
+    Args:
+        shape (str): The shape of the gamepiece, to get its instructions from the json
+        spot_x (int): x-coordinates
+        spot_y (int): y-coordinates
+         (str): The old orientation of the gamepiece
+        orientation (str, optional): The  orientation of the gamepiece. Defaults to "DOWN".
+
+    Returns:
+        [type]: [description]
+    """
     piece = pygame.sprite.Group()
     for i in range(0, 8, 2):
         x_coord = SHAPES[shape][direction][i] + spot_x
