@@ -59,15 +59,14 @@ class GameState:
         Returns:
             Bool: False if within bounds, True if outside
         """
-        max_x = max([piece.rect.x for piece in pieces])
-        if max_x > 763:
+        if max([piece.rect.x for piece in pieces]) > 763:
             return True
         return False
 
     def enforce_left_boundary(self, pieces):
         """Making sure the gamepiece doesn't go over the left edge.
 
-        Takes the maximum x-coordinate of the spritegroup and compares that to the border.
+        Takes the minimum x-coordinate of the spritegroup and compares that to the border.
 
         Args:
             pieces (spritegroup): The gamepiece
@@ -94,10 +93,19 @@ class GameState:
             if piece.rect.y < min_y:
                 min_y = piece.rect.y
             orientation = piece.orientation
-        self.pieces.empty()
-        self.pieces.add(rotator(self.next_piece, min_x, min_y, orientation))
-        self.add_all_sprites()
+        rotated_piece = rotator(self.next_piece, min_x, min_y, orientation)
+        if self.enforce_rotation_ability(rotated_piece):
+            self.pieces.empty()
+            self.pieces.add(rotated_piece)
+            self.add_all_sprites()
 
+    def enforce_rotation_ability(self, rotated_piece):
+        left = min([piece.rect.x for piece in rotated_piece])
+        right = max([piece.rect.x for piece in rotated_piece])
+        if left > 338 and right < 796 and not pygame.sprite.groupcollide(rotated_piece, self.fallen, False, False):
+            return True
+        return False
+        
     def check_for_collision(self, x_coord=0, y_coord=0):
         """Checks if the gamepiece has collided with the bottom, or the old fallen pieces
 
