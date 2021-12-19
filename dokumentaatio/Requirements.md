@@ -18,7 +18,7 @@ No user-roles proper, possibly if time allows will add different difficulty leve
 - --DONE-- Tetrominoes fall one by one from the top of the game-area
 - --DONE-- Tetrominoes can be rotated
 - --DONE-- Tetrominoes can be dropped to bottom with a press of a key
-- --DONE-- Tetrominoes pile up at the bottom [Slightly buggy]
+- --DONE-- Tetrominoes pile up at the bottom 
 - --DONE-- A full row of tetrominoes disappears, and the upper rows move down
 - The game ends when the pile reaches the roof
 
@@ -29,5 +29,5 @@ Given time will be added:
 - --DONE-- A counter for destroyed rows
 - Preview for coming tetrominoes
 - Directional aid/the spot the tetromino will fall
-- Increasing difficulty/pace
+- --DONE--Increasing difficulty/pace
 
