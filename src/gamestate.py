@@ -100,9 +100,17 @@ class GameState:
             self.add_all_sprites()
 
     def enforce_rotation_ability(self, rotated_piece):
+        """
+
+        Args:
+            rotated_piece ([type]): [description]
+
+        Returns:
+            Bool: True if piece can be rotated, False if not
+        """
         left = min([piece.rect.x for piece in rotated_piece])
         right = max([piece.rect.x for piece in rotated_piece])
-        if left > 338 and right < 796 and not pygame.sprite.groupcollide(rotated_piece, self.fallen, False, False):
+        if left > 338 and right < 796 and not self.check_fallen_collision():
             return True
         return False
 
@@ -171,16 +179,21 @@ class GameState:
                 self.score += 1
 
     def check_for_top_reach(self):
-        # fallen_ys = [piece.rect.y for piece in self.fallen]
-        # # if len(fallen_ys) > 0:
-        # #     highest = min(fallen_ys)
-        # #     if highest < 64:
-        # #         return True
+        """Check if the gamepiece collides with the already fallen gamepieces at the spawn site
+
+        Returns:
+            Bool: True if collision has happened, False if not
+        """
         if self.check_fallen_collision():
             return True
         return False
 
     def check_fallen_collision(self):
+        """Check if the gamepiece has collided with the already fallen gamepieces
+
+        Returns:
+            Bool: True if collision has happened, False if not
+        """
         if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
             return True
         return False
