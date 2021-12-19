@@ -199,6 +199,7 @@ class GameState:
             self.background,
             self.button,
             self.bottom,
-            self.pieces,
             self.fallen,
+            self.pieces,
+
         )

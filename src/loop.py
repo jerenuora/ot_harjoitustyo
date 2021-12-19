@@ -38,7 +38,7 @@ class Loop:
                     self.pause = not self.pause
                     self.game_over = True
                 self.actions.drop_piece(self.level)
-
+                self.level = max(50,(600 - (self.gamestate.score * 10)))
                 self._clock.tick(60)
 
             elif self.pause and not self.game_over:
