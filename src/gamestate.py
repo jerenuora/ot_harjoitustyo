@@ -105,7 +105,7 @@ class GameState:
         if left > 338 and right < 796 and not pygame.sprite.groupcollide(rotated_piece, self.fallen, False, False):
             return True
         return False
-        
+
     def check_for_collision(self, x_coord=0, y_coord=0):
         """Checks if the gamepiece has collided with the bottom, or the old fallen pieces
 
@@ -115,7 +115,7 @@ class GameState:
         Returns:
             Bool: True if a collision happened, False if not
         """
-        if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
+        if self.check_fallen_collision():
             for piece in self.pieces:
                 piece.rect.move_ip(-x_coord, -y_coord)
             self.fallen.add(self.pieces)
@@ -141,7 +141,7 @@ class GameState:
         """
         for piece in self.pieces:
             piece.rect.move_ip(x_coord, y_coord)
-        if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
+        if self.check_fallen_collision():
             for piece in self.pieces:
                 piece.rect.move_ip(-x_coord, -y_coord)
             return True
@@ -171,13 +171,18 @@ class GameState:
                 self.score += 1
 
     def check_for_top_reach(self):
-        # if self.check_for_collision():
-        #     return True
-        fallen_ys = [piece.rect.y for piece in self.fallen]
-        if len(fallen_ys) > 0:
-            highest = min(fallen_ys)
-            if highest < 64:
-                return True
+        # fallen_ys = [piece.rect.y for piece in self.fallen]
+        # # if len(fallen_ys) > 0:
+        # #     highest = min(fallen_ys)
+        # #     if highest < 64:
+        # #         return True
+        if self.check_fallen_collision():
+            return True
+        return False
+
+    def check_fallen_collision(self):
+        if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
+            return True
         return False
 
     def spawn_new_piece(self):
