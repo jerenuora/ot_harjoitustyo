@@ -28,5 +28,7 @@
 | 13.12.| 4    | Changes to tests, refactoring
 | 14.12.| 2    | Tests, lint, refactor
 | 14.12.| 2    | Architecture.md
-|yht    | 56   | |
+| 18.12.| 2    | Fixes, better timer for falling pieces
+| 19.12.| 1    | Fixes for clipping pieces, fastening pace
+|yht    | 60   | |
 
