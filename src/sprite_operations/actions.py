@@ -35,8 +35,10 @@ class Actions:
     def drop_once(self):
         """Drop a gamepiece for one block length, if no collision occurs
         """
-        if not self._gamestate.check_for_collision(y_coord=32):
+        counter = 0
+        while not self._gamestate.check_for_collision(y_coord=32) and counter < 1:
             self._gamestate.move(y_coord=32)
+            counter += 1
 
     def left_once(self):
         """Move a gamepiece left for one block length, if no collision occurs

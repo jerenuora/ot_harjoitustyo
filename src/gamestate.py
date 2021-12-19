@@ -107,7 +107,6 @@ class GameState:
         Returns:
             Bool: True if a collision happened, False if not
         """
-
         if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
             for piece in self.pieces:
                 piece.rect.move_ip(-x_coord, -y_coord)

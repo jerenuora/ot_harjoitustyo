@@ -1,12 +1,8 @@
 import unittest
 from gamestate import GameState
 
-
-from loop import Loop
-import pygame
-
 from sprite_operations.actions import Actions
-from sprite_operations.piece_creator import creator
+from sprite_operations.operations import creator
 
 
 class TestGamestate(unittest.TestCase):

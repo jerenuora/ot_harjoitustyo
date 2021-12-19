@@ -2,7 +2,7 @@ import unittest
 import pygame
 from gamestate import GameState
 from sprite_operations.actions import Actions
-from sprite_operations.piece_creator import creator
+from sprite_operations.operations import creator
 from sprites.block import Block
 
 
