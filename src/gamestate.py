@@ -1,6 +1,7 @@
 from random import choice
 import pygame
 
+from sprites.block import Block
 from sprites.bottom import Bottom
 from sprites.background import Board
 from sprites.buttons import Button
@@ -32,6 +33,7 @@ class GameState:
         self.background = Board()
         self.button = Button(play=True)
         self.bottom = Bottom()
+        self.filler = pygame.sprite.Group()
         self.spawn_new_piece()
         self.score = 0
 
@@ -178,7 +180,6 @@ class GameState:
                     elif piece.rect.y < y_coord:
                         piece.rect.move_ip(0, 32)
                 self.score += 1
-
     def check_for_top_reach(self):
         """Check if the gamepiece collides with the already fallen gamepieces at the spawn site
 
@@ -227,5 +228,6 @@ class GameState:
             self.bottom,
             self.fallen,
             self.pieces,
+            self.filler,
 
         )

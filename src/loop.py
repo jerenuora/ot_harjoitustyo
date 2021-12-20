@@ -1,5 +1,5 @@
 import pygame
-from ui.draw_display import draw_display
+from ui.draw_display import draw_display, draw_display_gameover
 from sprite_operations.actions import Actions
 
 
@@ -44,7 +44,8 @@ class Loop:
             elif self.pause and not self.game_over:
                 draw_display(self.gamestate, self._display)
             if self.game_over:
-                draw_display(self.gamestate, self._display,True)
+                draw_display_gameover(self.gamestate, self._display)
+                self._clock.tick(60)
 
     def _eventhandler(self):
         """Handling the keys being pressed
