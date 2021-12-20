@@ -33,7 +33,6 @@ class GameState:
         self.background = Board()
         self.button = Button(play=True)
         self.bottom = Bottom()
-        self.filler = pygame.sprite.Group()
         self.spawn_new_piece()
         self.score = 0
 
@@ -228,6 +227,5 @@ class GameState:
             self.bottom,
             self.fallen,
             self.pieces,
-            self.filler,
 
         )
