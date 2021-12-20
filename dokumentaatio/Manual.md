@@ -33,4 +33,4 @@ The game starts at its “PAUSE” state, so press the “PLAY” button with yo
 
 - The tetromino (the gamepiece) moves down, left, or right, until it meets the bottom, or an already fallen tetromino on the bottom. 
 - When a row of fallen tetrominoes reaches from one side to the other, it disappears. 
-- ##TODO## The game ends when the pile of tetrominoes reaches the top. 
+- The game ends when the pile of tetrominoes reaches the top. 
