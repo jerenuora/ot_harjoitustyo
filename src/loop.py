@@ -79,7 +79,7 @@ class Loop:
                             self.name += event.unicode.upper()
                 if event.key == pygame.K_ESCAPE:
                     return False
-                if event.key == pygame.K_p: ######### REMOVE AFTER DEV ######
+                if event.key == pygame.K_RETURN: ######### REMOVE AFTER DEV ######
                     self.pause = not self.pause ##############################
                     self.gamestate.change_button()#############################
 

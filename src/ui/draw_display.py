@@ -14,22 +14,36 @@ def draw_display_gameover(gamestate, display,name):
     gamestate.all_sprites.draw(display)
     draw_grid(display)
     draw_common_texts(display,gamestate.score)
-    font = pygame.font.Font(pygame.font.get_default_font(), 64)
-
-    font_big = pygame.font.Font(pygame.font.get_default_font(), 120)
-    game_over_text = font_big.render("GAME OVER",True,(39, 19, 95))
+    draw_game_over(display)
     if gamestate.score > get_lowest_shown_score():
-        enter_initials = font.render("Enter your initials:", True, (39, 19, 95))
-        show_name = font.render(name, True, (39, 19, 95))
-        display.blit(enter_initials, (200, 600))
-        display.blit(show_name,(200,700))
+        draw_ask_for_initials(display,name)
     else:
-        no_new_hs = font.render("No new highscore, press enter to play again ", True, (39, 19, 95))
-        display.blit(no_new_hs, (200, 600))
+        draw_press_enter(display)
     draw_scores(display)
-    display.blit(game_over_text, (200, 400))
     pygame.display.update()
     
+
+def draw_ask_for_initials(display,name):
+    font_small = pygame.font.Font(pygame.font.get_default_font(), 35)
+    enter_initials = font_small.render("Enter initials:", True, (39, 19, 95))
+    show_name = font_small.render(name, True, (39, 19, 95))
+    display.blit(enter_initials, (820, 355))
+    display.blit(show_name,(820,390))
+
+def draw_press_enter(display):
+    font_small = pygame.font.Font(pygame.font.get_default_font(), 35)
+    press_enter = font_small.render("Press enter ", True, (39, 19, 95))
+    to_play = font_small.render("to play again ", True, (39, 19, 95))
+    display.blit(press_enter, (820, 355))
+    display.blit(to_play, (820, 390))
+
+def draw_game_over(display):
+    font_big = pygame.font.Font(pygame.font.get_default_font(), 105)
+    game_text = font_big.render("GAME",True,(39, 19, 95))
+    over_text = font_big.render("OVER",True,(39, 19, 95))
+    display.blit(game_text, (10, 200))
+    display.blit(over_text, (820, 200))
+
 def draw_common_texts(display,score):
     font_small = pygame.font.Font(pygame.font.get_default_font(), 35)
     font = pygame.font.Font(pygame.font.get_default_font(), 64)
@@ -60,5 +74,3 @@ def draw_scores(display):
         text = f"3: {SCORES[2]['name']} {str(SCORES[2]['score'])}"
         scores = font.render(text,  True, (39, 19, 95))
         display.blit(scores, (50 , 620))
-
-
