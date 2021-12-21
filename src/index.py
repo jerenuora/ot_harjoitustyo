@@ -1,7 +1,7 @@
 import sys
 import pygame
 from gamestate import GameState
-from loop import Loop
+from ui.loop import Loop
 from database.database_init import database_init
 
 

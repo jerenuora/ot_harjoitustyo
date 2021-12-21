@@ -112,7 +112,7 @@ class GameState:
         """
         left = min([piece.rect.x for piece in rotated_piece])
         right = max([piece.rect.x for piece in rotated_piece])
-        if left > 338 and right < 796 and not self.check_fallen_collision():
+        if left > 338 and right < 796 and not self.check_fallen_collision(rotated_piece):
             return True
         return False
 
@@ -125,7 +125,7 @@ class GameState:
         Returns:
             Bool: True if a collision happened, False if not
         """
-        if self.check_fallen_collision():
+        if self.check_fallen_collision(self.pieces):
             for piece in self.pieces:
                 piece.rect.move_ip(-x_coord, -y_coord)
             self.fallen.add(self.pieces)
@@ -151,7 +151,7 @@ class GameState:
         """
         for piece in self.pieces:
             piece.rect.move_ip(x_coord, y_coord)
-        if self.check_fallen_collision():
+        if self.check_fallen_collision(self.pieces):
             for piece in self.pieces:
                 piece.rect.move_ip(-x_coord, -y_coord)
             return True
@@ -185,17 +185,17 @@ class GameState:
         Returns:
             Bool: True if collision has happened, False if not
         """
-        if self.check_fallen_collision():
+        if self.check_fallen_collision(self.pieces):
             return True
         return False
 
-    def check_fallen_collision(self):
+    def check_fallen_collision(self, pieces):
         """Check if the gamepiece has collided with the already fallen gamepieces
 
         Returns:
             Bool: True if collision has happened, False if not
         """
-        if pygame.sprite.groupcollide(self.pieces, self.fallen, False, False):
+        if pygame.sprite.groupcollide(pieces, self.fallen, False, False):
             return True
         return False
 
