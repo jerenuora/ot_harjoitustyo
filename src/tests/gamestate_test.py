@@ -62,6 +62,9 @@ class TestGamestate(unittest.TestCase):
             (764), (max([piece.rect.x for piece in gamepieces])))
 
     def test_full_row_disappears(self):
+        
+        self.gamestate.check_for_full_row()
+        self.assertEqual(0, self.gamestate.score)
 
         self.gamestate.pieces.empty()
         self.gamestate.pieces.add(creator("SHAPE_I",412,10))
@@ -94,3 +97,9 @@ class TestGamestate(unittest.TestCase):
         self.gamestate.check_for_full_row()
 
         self.assertEqual(2, self.gamestate.score)
+
+    def test_top_reach(self):
+        self.assertFalse(self.gamestate.check_for_top_reach())
+        for i in range(20):
+            self.actions.drop_to_bottom()
+        self.assertTrue(self.gamestate.check_for_top_reach())

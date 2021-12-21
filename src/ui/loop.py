@@ -17,7 +17,7 @@ class Loop:
         self.gamestate = gamestate
         self._display = display
         self._clock = pygame.time.Clock()
-        self.actions = Actions(self.gamestate)
+        self._actions = Actions(self.gamestate)
 
         self.name = ""
         self.pause = True
@@ -37,14 +37,14 @@ class Loop:
                 if self.gamestate.check_for_top_reach():
                     self.pause = not self.pause
                     self.game_over = True
-                self.actions.drop_piece(self.level)
-                self.level = max(50,(600 - (self.gamestate.score * 10)))
+                self._actions.drop_piece(self.level)
+                self.level = max(50, (600 - (self.gamestate.score * 10)))
                 self._clock.tick(60)
 
             elif self.pause and not self.game_over:
                 draw_display(self.gamestate, self._display)
             if self.game_over:
-                draw_display_gameover(self.gamestate, self._display,self.name)
+                draw_display_gameover(self.gamestate, self._display, self.name)
                 self._clock.tick(60)
 
     def _eventhandler(self):
@@ -57,31 +57,32 @@ class Loop:
             if event.type == pygame.KEYDOWN:
                 if not self.pause:
                     if event.key == pygame.K_LEFT:
-                        self.actions.left_once()
+                        self._actions.left_once()
                     elif event.key == pygame.K_RIGHT:
-                        self.actions.right_once()
+                        self._actions.right_once()
                     elif event.key == pygame.K_DOWN:
-                        self.actions.drop_once()
+                        self._actions.drop_once()
                     elif event.key == pygame.K_SPACE:
-                        self.actions.drop_to_bottom()
+                        self._actions.drop_to_bottom()
                     elif event.key == pygame.K_UP:
-                        self.actions.rotate()
+                        self._actions.rotate()
                 if self.game_over:
                     if event.key == pygame.K_RETURN:
-                        self.actions.save_score(self.name, self.gamestate.score)
+                        self._actions.save_score(
+                            self.name, self.gamestate.score)
                         self.name = ""
                         self.gamestate.__init__()
-                        self.__init__(self.gamestate,self._display)
+                        self.__init__(self.gamestate, self._display)
                     elif event.key == pygame.K_BACKSPACE:
-                        self.name  = self.name[:-1]
+                        self.name = self.name[:-1]
                     else:
                         if len(self.name) < 3:
                             self.name += event.unicode.upper()
                 if event.key == pygame.K_ESCAPE:
                     return False
-                if event.key == pygame.K_RETURN: ######### REMOVE AFTER DEV ######
-                    self.pause = not self.pause ##############################
-                    self.gamestate.change_button()#############################
+                if event.key == pygame.K_RETURN:  # REMOVE AFTER DEV ######
+                    self.pause = not self.pause
+                    self.gamestate.change_button()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 click_point = pygame.mouse.get_pos()

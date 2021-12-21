@@ -1,7 +1,11 @@
 from database.database_connections import get_database_connection
 
-
 def drop_tables(connection):
+    """Drop tables to ensure succesfull creation
+
+    Args:
+        connection (sqlite3 connection): Connection to database
+    """
     cursor = connection.cursor()
 
     cursor.execute('''
@@ -12,6 +16,11 @@ def drop_tables(connection):
 
 
 def create_tables(connection):
+    """Create the table
+
+    Args:
+        connection (sqlite3 connection): Connection to database
+    """
     cursor = connection.cursor()
 
     cursor.execute('''
@@ -20,15 +29,16 @@ def create_tables(connection):
             score int
         );
     ''')
-    cursor.execute('insert into scores (name,score) values ("FST",0)')
     connection.commit()
 
-
 def database_init():
+    """Initialize the database connection
+    """
     connection = get_database_connection()
 
     drop_tables(connection)
     create_tables(connection)
+
 
 if __name__ == "__main__":
     database_init()

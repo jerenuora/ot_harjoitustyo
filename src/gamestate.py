@@ -1,7 +1,6 @@
 from random import choice
 import pygame
 
-from sprites.block import Block
 from sprites.bottom import Bottom
 from sprites.background import Board
 from sprites.buttons import Button
@@ -43,14 +42,14 @@ class GameState:
             x_coord (int, optional): Amount of movement in the x-plane. Defaults to 0.
             y_coord (int, optional): Amount of movement in the y-plane. Defaults to 0.
         """
-        if not self.enforce_right_boundary(self.pieces) and x_coord >= 0:
+        if not self.enforce_right_boundary() and x_coord >= 0:
             for piece in self.pieces:
                 piece.rect.move_ip(x_coord, y_coord)
-        elif not self.enforce_left_boundary(self.pieces) and x_coord <= 0:
+        elif not self.enforce_left_boundary() and x_coord <= 0:
             for piece in self.pieces:
                 piece.rect.move_ip(x_coord, y_coord)
 
-    def enforce_right_boundary(self, pieces):
+    def enforce_right_boundary(self):
         """Making sure the gamepiece doesn't go over the right edge.
 
         Takes the maximum x-coordinate of the spritegroup and compares that to the border.
@@ -61,11 +60,11 @@ class GameState:
         Returns:
             Bool: False if within bounds, True if outside
         """
-        if max([piece.rect.x for piece in pieces]) > 763:
+        if max([piece.rect.x for piece in self.pieces]) > 763:
             return True
         return False
 
-    def enforce_left_boundary(self, pieces):
+    def enforce_left_boundary(self):
         """Making sure the gamepiece doesn't go over the left edge.
 
         Takes the minimum x-coordinate of the spritegroup and compares that to the border.
@@ -76,7 +75,7 @@ class GameState:
         Returns:
             Bool: False if within bounds, True if outside
         """
-        if min([piece.rect.x for piece in pieces]) < 370:
+        if min([piece.rect.x for piece in self.pieces]) < 370:
             return True
         return False
 
@@ -102,10 +101,10 @@ class GameState:
             self.add_all_sprites()
 
     def enforce_rotation_ability(self, rotated_piece):
-        """
+        """Calculate if the rotated piece is out of bounds, or colliding with the fallen spritegroup
 
         Args:
-            rotated_piece ([type]): [description]
+            rotated_piece (spritegroup): The rotated piece to test
 
         Returns:
             Bool: True if piece can be rotated, False if not
@@ -133,7 +132,7 @@ class GameState:
             self.spawn_new_piece()
             return True
 
-        if pygame.sprite.spritecollideany(self.bottom,self.pieces):
+        if pygame.sprite.spritecollideany(self.bottom, self.pieces):
 
             self.fallen.add(self.pieces)
             self.add_all_sprites()
@@ -179,6 +178,7 @@ class GameState:
                     elif piece.rect.y < y_coord:
                         piece.rect.move_ip(0, 32)
                 self.score += 1
+
     def check_for_top_reach(self):
         """Check if the gamepiece collides with the already fallen gamepieces at the spawn site
 

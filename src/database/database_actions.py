@@ -2,8 +2,12 @@ from database.database_connections import get_database_connection
 
 connection = get_database_connection()
 
-
 def get_scores():
+    """Query the score-table and return them as dict
+
+    Returns:
+        dict: A dictionary of scores
+    """
     cursor = connection.cursor()
 
     cursor.execute("select * from scores")
@@ -14,6 +18,12 @@ def get_scores():
 
 
 def put_scores(name, score):
+    """Input the new highscore to the scores database
+
+    Args:
+        name (str): Name (initials) of the player
+        score (int): Score
+    """
     cursor = connection.cursor()
 
     cursor.execute("select * from scores")
@@ -41,8 +51,12 @@ def put_scores(name, score):
             connection.commit()
 
 
-
 def get_lowest_shown_score():
+    """Query the third lowest score in the database, to know when to add a higher one
+
+    Returns:
+        int: The score
+    """
     cursor = connection.cursor()
 
     cursor.execute("select * from scores")
@@ -50,6 +64,8 @@ def get_lowest_shown_score():
     rows = cursor.fetchall()
     scores = [row["score"] for row in rows]
     scores.sort(reverse=True)
+    if len(scores) == 0:
+        return 0
     if len(scores) < 3:
         return scores[-1]
     return scores[2]

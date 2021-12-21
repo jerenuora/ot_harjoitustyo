@@ -1,5 +1,4 @@
 import unittest
-import pygame
 from gamestate import GameState
 from sprite_operations.actions import Actions
 from sprite_operations.operations import creator
