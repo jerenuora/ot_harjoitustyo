@@ -19,7 +19,7 @@ class Loop:
         self._clock = pygame.time.Clock()
         self.actions = Actions(self.gamestate)
 
-        self.prev_keystroke = "RIGHT"
+        self.name = ""
         self.pause = True
         self.game_over = False
         self.level = 600
@@ -44,7 +44,7 @@ class Loop:
             elif self.pause and not self.game_over:
                 draw_display(self.gamestate, self._display)
             if self.game_over:
-                draw_display_gameover(self.gamestate, self._display)
+                draw_display_gameover(self.gamestate, self._display,self.name)
                 self._clock.tick(60)
 
     def _eventhandler(self):
@@ -66,11 +66,22 @@ class Loop:
                         self.actions.drop_to_bottom()
                     elif event.key == pygame.K_UP:
                         self.actions.rotate()
+                if self.game_over:
+                    if event.key == pygame.K_RETURN:
+                        self.actions.save_score(self.name, self.gamestate.score)
+                        self.name = ""
+                        self.gamestate.__init__()
+                        self.__init__(self.gamestate,self._display)
+                    elif event.key == pygame.K_BACKSPACE:
+                        self.name  = self.name[:-1]
+                    else:
+                        if len(self.name) < 3:
+                            self.name += event.unicode.upper()
                 if event.key == pygame.K_ESCAPE:
                     return False
-                if event.key == pygame.K_p:
-                    self.pause = not self.pause
-                    self.gamestate.change_button()
+                if event.key == pygame.K_p: ######### REMOVE AFTER DEV ######
+                    self.pause = not self.pause ##############################
+                    self.gamestate.change_button()#############################
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 click_point = pygame.mouse.get_pos()

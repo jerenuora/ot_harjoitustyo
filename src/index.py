@@ -2,6 +2,7 @@ import sys
 import pygame
 from gamestate import GameState
 from loop import Loop
+from database.database_init import database_init
 
 
 def main():
@@ -14,6 +15,7 @@ def main():
     pygame.display.set_caption("TETRIS")
     game_state = GameState()
     pygame.init()
+    database_init()
     loop = Loop(game_state, display)
     loop.start()
 

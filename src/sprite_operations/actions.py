@@ -1,5 +1,5 @@
 import pygame
-
+from database.database_actions import put_scores
 
 class Actions:
     """A class for performing gamepiece actions when called upon by loop
@@ -58,3 +58,5 @@ class Actions:
         """Rotate a gamepiece
         """
         self._gamestate.rotate()
+    def save_score(self, name, score):
+        put_scores(name,score)
