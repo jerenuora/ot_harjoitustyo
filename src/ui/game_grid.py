@@ -1,5 +1,7 @@
+"""
+Draw a grip to be the borders of the game
+"""
 import pygame
-
 
 def draw_grid(display):
     pygame.draw.line(display, (0, 135, 255), (341, 4), (341, 781), width=5)

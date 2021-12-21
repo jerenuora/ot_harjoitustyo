@@ -1,3 +1,6 @@
+"""
+Form a filepath and load an image
+"""
 import os
 import pygame
 
@@ -6,7 +9,8 @@ dirname = os.path.dirname(__file__)
 
 
 def img_loader(filename):
-    """Loads the images for the spites
+    """
+    Loads the images for the spites
 
     Args:
         filename (str): Name of the image file

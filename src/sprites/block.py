@@ -1,9 +1,13 @@
+"""
+A single block of gamepiece sprite
+"""
 import pygame
 from sprite_operations.img_loader import img_loader
 
 
 class Block(pygame.sprite.Sprite):
-    """ Class for a single block of gamepiece. Many of these together form a whole gamepice
+    """
+    Class for a single block of gamepiece. Many of these together form a whole gamepice
     """
 
     def __init__(self, x_coord=0, y_coord=0, shape="", orientation="DOWN"):

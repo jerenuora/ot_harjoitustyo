@@ -1,9 +1,14 @@
+"""
+Performing the database queries
+"""
+
 from database.database_connections import get_database_connection
 
 connection = get_database_connection()
 
 def get_scores():
-    """Query the score-table and return them as dict
+    """
+    Query the score-table and return them as dict
 
     Returns:
         dict: A dictionary of scores
@@ -18,7 +23,8 @@ def get_scores():
 
 
 def put_scores(name, score):
-    """Input the new highscore to the scores database
+    """
+    Input the new highscore to the scores database
 
     Args:
         name (str): Name (initials) of the player
@@ -52,7 +58,8 @@ def put_scores(name, score):
 
 
 def get_lowest_shown_score():
-    """Query the third lowest score in the database, to know when to add a higher one
+    """
+    Query the third lowest score in the database, to know when to add a higher one
 
     Returns:
         int: The score

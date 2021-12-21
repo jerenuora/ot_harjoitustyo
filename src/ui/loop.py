@@ -1,3 +1,6 @@
+"""
+A gameplay loop
+"""
 import pygame
 from ui.draw_display import draw_display, draw_display_gameover
 from sprite_operations.actions import Actions

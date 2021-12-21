@@ -1,3 +1,7 @@
+"""
+Different "screens", and their texts to be drawn at different game situations. 
+Also, drawing the sprites, updating pygame display
+"""
 import pygame
 from ui.game_grid import draw_grid
 from database.database_actions import get_scores, get_lowest_shown_score

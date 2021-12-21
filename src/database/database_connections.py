@@ -1,3 +1,6 @@
+"""
+Form a filepath and establish a database connection
+"""
 import os
 import sqlite3
 
@@ -9,4 +12,10 @@ connection.row_factory = sqlite3.Row
 
 
 def get_database_connection():
+    """
+    Return connection
+
+    Returns:
+        sqlite3 connection
+    """
     return connection

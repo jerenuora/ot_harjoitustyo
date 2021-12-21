@@ -1,3 +1,6 @@
+"""
+For keeping track of the state of the game and all its sprites. Also, manipulating sprites
+"""
 from random import choice
 import pygame
 
@@ -19,12 +22,14 @@ SHAPES = [
 
 
 class GameState:
-    """Keeps track of all the sprites and their locations
+    """
+    Keeps track of all the sprites and their locations
 
     """
 
     def __init__(self):
-        """Constructor, that creates the spritegroups that contain the gamepieces
+        """
+        Constructor, that creates the spritegroups that contain the gamepieces
         """
         self.all_sprites = pygame.sprite.Group()
         self.pieces = pygame.sprite.Group()
@@ -36,7 +41,8 @@ class GameState:
         self.score = 0
 
     def move(self, x_coord=0, y_coord=0):
-        """Moves the gamepiece
+        """
+        Moves the gamepiece
 
         Args:
             x_coord (int, optional): Amount of movement in the x-plane. Defaults to 0.
@@ -50,7 +56,8 @@ class GameState:
                 piece.rect.move_ip(x_coord, y_coord)
 
     def enforce_right_boundary(self):
-        """Making sure the gamepiece doesn't go over the right edge.
+        """
+        Making sure the gamepiece doesn't go over the right edge.
 
         Takes the maximum x-coordinate of the spritegroup and compares that to the border.
 
@@ -65,7 +72,8 @@ class GameState:
         return False
 
     def enforce_left_boundary(self):
-        """Making sure the gamepiece doesn't go over the left edge.
+        """
+        Making sure the gamepiece doesn't go over the left edge.
 
         Takes the minimum x-coordinate of the spritegroup and compares that to the border.
 
@@ -80,7 +88,8 @@ class GameState:
         return False
 
     def rotate(self):
-        """Calculates the upper leftmost edge of the gamepiece spritegroup
+        """
+        Calculates the upper leftmost edge of the gamepiece spritegroup
 
         Deletes the previous gamepiece,
         and calls the rotator function to create a new, rotated one, in its place
@@ -101,7 +110,8 @@ class GameState:
             self.add_all_sprites()
 
     def enforce_rotation_ability(self, rotated_piece):
-        """Calculate if the rotated piece is out of bounds, or colliding with the fallen spritegroup
+        """
+        Calculate if the rotated piece is out of bounds, or colliding with the fallen spritegroup
 
         Args:
             rotated_piece (spritegroup): The rotated piece to test
@@ -116,7 +126,8 @@ class GameState:
         return False
 
     def check_for_collision(self, x_coord=0, y_coord=0):
-        """Checks if the gamepiece has collided with the bottom, or the old fallen pieces
+        """
+        Checks if the gamepiece has collided with the bottom, or the old fallen pieces
 
         When a collision is detected, adds gamepiece to the fallen-pieces spritegroup,
         and calls a function to create a new gamepiece
@@ -141,7 +152,8 @@ class GameState:
         return False
 
     def check_for_collision_sideways(self, x_coord=0, y_coord=0):
-        """Checks if the gamepiece has collided with the old fallen pieces sideways
+        """
+        Checks if the gamepiece has collided with the old fallen pieces sideways
 
         When a collision is detected, the gamepiece is moved backwards one step
 
@@ -160,7 +172,8 @@ class GameState:
         return False
 
     def check_for_full_row(self):
-        """Check to see if a row is full of fallen gamepieces, and if so, delete the row
+        """
+        Check to see if a row is full of fallen gamepieces, and if so, delete the row
         """
         table = {}
         sum_of_x_coordinates_for_full_row = 7784
@@ -180,7 +193,8 @@ class GameState:
                 self.score += 1
 
     def check_for_top_reach(self):
-        """Check if the gamepiece collides with the already fallen gamepieces at the spawn site
+        """
+        Check if the gamepiece collides with the already fallen gamepieces at the spawn site
 
         Returns:
             Bool: True if collision has happened, False if not
@@ -190,7 +204,8 @@ class GameState:
         return False
 
     def check_fallen_collision(self, pieces):
-        """Check if the gamepiece has collided with the already fallen gamepieces
+        """
+        Check if the gamepiece has collided with the already fallen gamepieces
 
         Returns:
             Bool: True if collision has happened, False if not
@@ -200,7 +215,8 @@ class GameState:
         return False
 
     def spawn_new_piece(self):
-        """Calls the function to pick a new shape for a gampiece,
+        """
+        Calls the function to pick a new shape for a gampiece,
         and a function to create a gamepiece, and adds it to the spritegroup to be rendered
         """
         self.pick_next()
@@ -208,17 +224,21 @@ class GameState:
         self.add_all_sprites()
 
     def pick_next(self):
-        """Pick a new shape for gamepiece
+        """
+        Pick a new shape for gamepiece
         """
         self.next_piece = choice(SHAPES)
 
     def change_button(self):
-        """Change the play button from "PLAY" to "PAUSE" and back"""
+        """
+        Change the play button from "PLAY" to "PAUSE" and back
+        """
         self.button = Button(play=not self.button.play)
         self.add_all_sprites()
 
     def add_all_sprites(self):
-        """Add all the different sprites and spritegroups to the group that is then rendered in Loop
+        """
+        Add all the different sprites and spritegroups to the group that is then rendered in Loop
         """
         self.all_sprites.empty()
         self.all_sprites.add(

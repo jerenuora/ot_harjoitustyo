@@ -1,9 +1,13 @@
+"""
+Play and pause button sprites
+"""
 import pygame
 from sprite_operations.img_loader import img_loader
 
 
 class Button(pygame.sprite.Sprite):
-    """A class to greate a play button
+    """
+    A class to greate a play button
 
     """
     def __init__(self, x_coord=20, y_coord=20, play=True):

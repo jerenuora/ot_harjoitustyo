@@ -1,3 +1,6 @@
+"""
+To set up pygame, gamestate, database and loop
+"""
 import sys
 import pygame
 from gamestate import GameState
@@ -6,7 +9,8 @@ from database.database_init import database_init
 
 
 def main():
-    """Main function to set up pygame, a display area and to call the gameplay loop
+    """
+    Main function to set up pygame, a display area and to call the gameplay loop
     """
 
     display_x = 1145

@@ -1,9 +1,13 @@
+"""
+To perform actions called upon by loop
+"""
 import pygame
 from database.database_actions import put_scores
 
 
 class Actions:
-    """A class for performing gamepiece actions when called upon by loop
+    """
+    A class for performing gamepiece actions when called upon by the loop
     """
 
     def __init__(self, gamestate):
@@ -16,7 +20,8 @@ class Actions:
         self.timer = 0
 
     def drop_piece(self, level):
-        """Countdown to dropping a gamepiece
+        """
+        Countdown to dropping a gamepiece
 
         Args:
             clock (pygame.time.Clock()): A clock to keep track of advanced loop time
@@ -28,13 +33,15 @@ class Actions:
             self.drop_once()
 
     def drop_to_bottom(self):
-        """Drop a gamepiece until a collision occurs
+        """
+        Drop a gamepiece until a collision occurs
         """
         while not self._gamestate.check_for_collision(y_coord=32):
             self._gamestate.move(y_coord=32)
 
     def drop_once(self):
-        """Drop a gamepiece for one block length, if no collision occurs
+        """
+        Drop a gamepiece for one block length, if no collision occurs
         """
         counter = 0
         while not self._gamestate.check_for_collision(y_coord=32) and counter < 1:
@@ -42,26 +49,30 @@ class Actions:
             counter += 1
 
     def left_once(self):
-        """Move a gamepiece left for one block length, if no collision occurs
+        """
+        Move a gamepiece left for one block length, if no collision occurs
         """
 
         if not self._gamestate.check_for_collision_sideways(x_coord=-32):
             self._gamestate.move(x_coord=-32)
 
     def right_once(self):
-        """Move a gamepiece right for one block length, if no collision occurs
+        """
+        Move a gamepiece right for one block length, if no collision occurs
         """
 
         if not self._gamestate.check_for_collision_sideways(x_coord=32):
             self._gamestate.move(x_coord=32)
 
     def rotate(self):
-        """Rotate a gamepiece
+        """
+        Rotate a gamepiece
         """
         self._gamestate.rotate()
 
     def save_score(self, name, score):
-        """Call the database function to save the highscore
+        """
+        Call the database function to save the highscore
 
         Args:
             name (str): Name (initials) of the player

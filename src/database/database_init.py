@@ -1,7 +1,12 @@
+"""
+To initialize a database
+"""
 from database.database_connections import get_database_connection
 
+
 def drop_tables(connection):
-    """Drop tables to ensure succesfull creation
+    """
+    Drop tables to ensure succesfull creation
 
     Args:
         connection (sqlite3 connection): Connection to database
@@ -16,7 +21,8 @@ def drop_tables(connection):
 
 
 def create_tables(connection):
-    """Create the table
+    """
+    Create the table
 
     Args:
         connection (sqlite3 connection): Connection to database
@@ -31,8 +37,11 @@ def create_tables(connection):
     ''')
     connection.commit()
 
+
 def database_init():
-    """Initialize the database connection
+    """
+    Initialize the database connection
+
     """
     connection = get_database_connection()
 
