@@ -1,6 +1,6 @@
 # Hours worked
 
-| päivä | aika | työn laatu  |
+| date  | time | work  |
 | :----:|:-----| :-----|
 | 15.11.| 1    | Requirements specification|
 | 18.11.| 2    | Setting up poetry project, updating readme
@@ -30,5 +30,6 @@
 | 14.12.| 2    | Architecture.md
 | 18.12.| 2    | Fixes, better timer for falling pieces
 | 19.12.| 1    | Fixes for clipping pieces, fastening pace
-|yht    | 60   | |
+| 21.12.| 5    | Database, refactor, fixes
+| sum   | 65   | |
 

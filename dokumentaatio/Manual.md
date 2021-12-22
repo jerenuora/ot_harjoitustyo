@@ -20,15 +20,19 @@ poetry run invoke start
 
 ## Playing the game
 
-The game starts at its “PAUSE” state, so press the “PLAY” button with your mouse, or hit the P-key on your keyboard, to start playing. 
+The game starts at its “PAUSE” state, so press the “PLAY” button with your mouse, or hit the Enter-key on your keyboard, to start playing. 
 
 # Keys 
 
 - Move the tetromino with the left-, right-, and down-arrow keys.
 - Up-arrow rotatest the tetromino. 
 - Spacebar drops the tetromino all the way down. 
-- P, or the clickable “PAUSE”-button for pause, and while paused, P, or the clickable “PLAY”-button to resume. 
-
+- Enter, or the clickable “PAUSE”-button for pause, and while paused, Enter, or the clickable “PLAY”-button to resume. 
+- You can exit by pressing ESC-key, or just by closing the game-window.
+- 
+# When the game ends
+- If a high score is achieved, enter your initials (3 letters) and press enter.
+- If a high score is not achieved, just press enter to play again. 
 # Rules
 
 - The tetromino (the gamepiece) moves down, left, or right, until it meets the bottom, or an already fallen tetromino on the bottom. 
