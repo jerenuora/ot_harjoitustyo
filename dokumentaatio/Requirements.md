@@ -3,7 +3,7 @@
 ## Purpose
 
 Classic tetris, in which tetrominoes fall from the sky and pile up on the bottom,
-disappearing when completing a row
+disappearing when completing a row.
 
 ## Users
 
