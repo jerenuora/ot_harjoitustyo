@@ -31,5 +31,6 @@
 | 18.12.| 2    | Fixes, better timer for falling pieces
 | 19.12.| 1    | Fixes for clipping pieces, fastening pace
 | 21.12.| 5    | Database, refactor, fixes
-| sum   | 65   | |
+| 21.12.| 3    | Testing
+| sum   | 68   | |
 
