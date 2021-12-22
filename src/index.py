@@ -4,8 +4,9 @@ To set up pygame, gamestate, database and loop
 import sys
 import pygame
 from gamestate import GameState
-from ui.loop import Loop
+from loop import Loop
 from database.database_init import database_init
+from ui.draw_display import draw_display, draw_display_gameover
 
 
 def main():
@@ -20,7 +21,7 @@ def main():
     game_state = GameState()
     pygame.init()
     database_init()
-    loop = Loop(game_state, display)
+    loop = Loop(game_state, display,draw_display, draw_display_gameover)
     loop.start()
 
     while True:

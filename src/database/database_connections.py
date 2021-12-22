@@ -1,13 +1,11 @@
 """
-Form a filepath and establish a database connection
+Establish a database connection
 """
-import os
 import sqlite3
+from config import DB_FILE_PATH
 
-dirname = os.path.dirname(__file__)
 
-connection = sqlite3.connect(os.path.join(
-    dirname, "..", "assets", "scores.db"))
+connection = sqlite3.connect(DB_FILE_PATH)
 connection.row_factory = sqlite3.Row
 
 

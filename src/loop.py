@@ -2,7 +2,6 @@
 A gameplay loop
 """
 import pygame
-from ui.draw_display import draw_display, draw_display_gameover
 from sprite_operations.actions import Actions
 
 
@@ -10,7 +9,7 @@ class Loop:
     """ A gameloop to render the screen, advance gameplay and handle keypresses.
     """
 
-    def __init__(self, gamestate, display):
+    def __init__(self, gamestate, display, draw_display, draw_display_gameover):
         """Set up the loop
 
         Args:
@@ -21,6 +20,8 @@ class Loop:
         self._display = display
         self._clock = pygame.time.Clock()
         self._actions = Actions(self.gamestate)
+        self._draw_display = draw_display
+        self._draw_display_gameover = draw_display_gameover
 
         self.name = ""
         self.pause = True
@@ -35,7 +36,7 @@ class Loop:
                 break
 
             if not self.pause:
-                draw_display(self.gamestate, self._display)
+                self._draw_display(self.gamestate, self._display)
                 self.gamestate.check_for_full_row()
                 if self.gamestate.check_for_top_reach():
                     self.pause = not self.pause
@@ -45,9 +46,10 @@ class Loop:
                 self._clock.tick(60)
 
             elif self.pause and not self.game_over:
-                draw_display(self.gamestate, self._display)
+                self._draw_display(self.gamestate, self._display)
             if self.game_over:
-                draw_display_gameover(self.gamestate, self._display, self.name)
+                self._draw_display_gameover(
+                    self.gamestate, self._display, self.name)
                 self._clock.tick(60)
 
     def _eventhandler(self):
@@ -75,22 +77,27 @@ class Loop:
                             self.name, self.gamestate.score)
                         self.name = ""
                         self.gamestate.__init__()
-                        self.__init__(self.gamestate, self._display)
+                        self.__init__(self.gamestate,
+                                      self._display,
+                                      self._draw_display,
+                                      self._draw_display_gameover)
+
                     elif event.key == pygame.K_BACKSPACE:
                         self.name = self.name[:-1]
                     else:
-                        if len(self.name) < 3:
+                        if len(self.name) < 3 and event.unicode != " ":
                             self.name += event.unicode.upper()
                 if event.key == pygame.K_ESCAPE:
                     return False
-                if event.key == pygame.K_RETURN:  # REMOVE AFTER DEV ######
+                if event.key == pygame.K_RETURN:
                     self.pause = not self.pause
                     self.gamestate.change_button()
-
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                click_point = pygame.mouse.get_pos()
-                if self.gamestate.button.rect.collidepoint(click_point):
-                    self.pause = not self.pause
-                    self.gamestate.change_button()
+            if not self.game_over:
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    click_point = pygame.mouse.get_pos()
+                    if self.gamestate.button.rect.collidepoint(click_point):
+                        
+                        self.pause = not self.pause
+                        self.gamestate.change_button()
             elif event.type == pygame.QUIT:
                 return False
