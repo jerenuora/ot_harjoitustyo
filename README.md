@@ -9,6 +9,7 @@ A course project for Software Development Methods in the University of Helsinki.
 - [Viikko 6](https://github.com/jerenuora/ot_harjoitustyo/releases/tag/viikko6)
 
 ## Documentation
+- [Manual] (https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Manual.md)
 - [Worked hours](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Timetracking.md)
 - [Requirements specification](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Requirements.md)
 - [Architecture](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Architecture.md)
