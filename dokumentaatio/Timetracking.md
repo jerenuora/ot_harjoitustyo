@@ -1,6 +1,6 @@
 # Hours worked
 
-| päivä | aika | työn laatu  |
+| date  | time | work  |
 | :----:|:-----| :-----|
 | 15.11.| 1    | Requirements specification|
 | 18.11.| 2    | Setting up poetry project, updating readme
