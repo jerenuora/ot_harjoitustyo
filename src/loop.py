@@ -33,21 +33,20 @@ class Loop:
             print(self.game_over)
             if self._eventhandler() is False:
                 break
-            
+
             if not self.pause:
                 self._draw_display.draw_display()
                 self.gamestate.check_for_full_row()
                 if self.gamestate.check_for_top_reach():
                     self.pause = not self.pause
                     self.game_over = True
-                self._actions.drop_piece(self.level,self._clock)
+                self._actions.drop_piece(self.level, self._clock)
                 self.level = max(50, (600 - (self.gamestate.score * 10)))
                 self._clock.tick(60)
             elif self.pause and not self.game_over:
                 self._draw_display.draw_display()
             if self.game_over:
                 self._draw_display.draw_display_gameover(self.name)
-                
 
     def _eventhandler(self):
         """Handling the keys being pressed
