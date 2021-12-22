@@ -30,5 +30,6 @@
 | 14.12.| 2    | Architecture.md
 | 18.12.| 2    | Fixes, better timer for falling pieces
 | 19.12.| 1    | Fixes for clipping pieces, fastening pace
-|yht    | 60   | |
+| 21.12.| 5    | Database, refactor, fixes
+|yht    | 65   | |
 
