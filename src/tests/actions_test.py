@@ -4,6 +4,13 @@ from sprite_operations.actions import Actions
 from sprite_operations.operations import creator
 from sprites.block import Block
 
+class MockClock:
+    def tick(self, fps):
+        pass
+
+    def get_ticks(self):
+        return 600
+
 
 class TestActions(unittest.TestCase):
     def setUp(self):
@@ -68,3 +75,15 @@ class TestActions(unittest.TestCase):
         self.assertEqual(
             714, max(new_positions))
 
+    def test_drop_piece_once_after_a_set_time(self):
+        gamepieces = self.gamestate.pieces.sprites()
+        positions = [piece.rect.y for piece in gamepieces]
+
+        
+        self.actions.drop_piece(601, MockClock())
+        self.actions.drop_piece(599, MockClock())
+        
+        new_positions = [piece.rect.y for piece in gamepieces]
+        
+        self.assertEqual(
+            [y + 32 for y in positions], new_positions)

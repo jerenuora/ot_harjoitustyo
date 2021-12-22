@@ -47,22 +47,20 @@ class TestGamestate(unittest.TestCase):
 
     def test_piece_out_of_bounds_left(self):
         gamepieces = self.gamestate.pieces.sprites()
-        x = min([piece.rect.x for piece in gamepieces])
-        for i in range(20):
+        for _ in range(20):
             self.gamestate.move(-32, 0)
         self.assertEqual(
             (348), (min([piece.rect.x for piece in gamepieces])))
 
     def test_piece_out_of_bounds_right(self):
         gamepieces = self.gamestate.pieces.sprites()
-        x = min([piece.rect.x for piece in gamepieces])
-        for i in range(20):
+        for _ in range(20):
             self.gamestate.move(32, 0)
         self.assertEqual(
             (764), (max([piece.rect.x for piece in gamepieces])))
 
     def test_full_row_disappears(self):
-        
+
         self.gamestate.check_for_full_row()
         self.assertEqual(0, self.gamestate.score)
 
@@ -100,6 +98,30 @@ class TestGamestate(unittest.TestCase):
 
     def test_top_reach(self):
         self.assertFalse(self.gamestate.check_for_top_reach())
-        for i in range(20):
+        for _ in range(20):
             self.actions.drop_to_bottom()
         self.assertTrue(self.gamestate.check_for_top_reach())
+
+    def test_enforce_rotation_ability(self):
+        self.gamestate.pieces.empty()
+        self.gamestate.pieces.add(creator("SHAPE_I",540, 100))
+        gamepieces = self.gamestate.pieces.sprites()
+
+        piece_coords = [piece.rect.x for piece in gamepieces]
+
+        self.gamestate.rotate()
+        rotated_gamepieces = self.gamestate.pieces.sprites()
+
+        rotated_coords = [piece.rect.x for piece in rotated_gamepieces]
+        self.assertNotEqual(piece_coords,rotated_coords)
+        for _ in range(20):
+            self.gamestate.move(-32,0)
+        gamepieces = self.gamestate.pieces.sprites()
+
+        piece_coords = [piece.rect.x for piece in gamepieces]
+
+        self.gamestate.rotate()
+        rotated_gamepieces = self.gamestate.pieces.sprites()
+
+        rotated_coords = [piece.rect.x for piece in rotated_gamepieces]
+        self.assertEqual(piece_coords,rotated_coords)

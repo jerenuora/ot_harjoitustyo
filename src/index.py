@@ -6,9 +6,9 @@ import pygame
 from gamestate import GameState
 from loop import Loop
 from database.database_init import database_init
-from ui.draw_display import draw_display, draw_display_gameover
-
-
+from ui.draw_display import DrawDisplay
+from events import Events
+from clock import Clock
 def main():
     """
     Main function to set up pygame, a display area and to call the gameplay loop
@@ -18,10 +18,12 @@ def main():
     display_y = 800
     display = pygame.display.set_mode((display_x, display_y))
     pygame.display.set_caption("TETRIS")
-    game_state = GameState()
+    gamestate = GameState()
     pygame.init()
     database_init()
-    loop = Loop(game_state, display,draw_display, draw_display_gameover)
+    draw_display = DrawDisplay(gamestate,display)
+    events = Events()
+    loop = Loop(gamestate,draw_display,Events(),Clock())
     loop.start()
 
     while True:

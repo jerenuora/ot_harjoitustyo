@@ -9,7 +9,7 @@ class Loop:
     """ A gameloop to render the screen, advance gameplay and handle keypresses.
     """
 
-    def __init__(self, gamestate, display, draw_display, draw_display_gameover):
+    def __init__(self, gamestate, draw_display, events, clock):
         """Set up the loop
 
         Args:
@@ -17,12 +17,10 @@ class Loop:
             display (Pygame.display): Pygame display  object to draw the game to
         """
         self.gamestate = gamestate
-        self._display = display
-        self._clock = pygame.time.Clock()
+        self.events = events
+        self._clock = clock
         self._actions = Actions(self.gamestate)
         self._draw_display = draw_display
-        self._draw_display_gameover = draw_display_gameover
-
         self.name = ""
         self.pause = True
         self.game_over = False
@@ -32,25 +30,24 @@ class Loop:
         """The actual gameplay loop
         """
         while True:
+            print(self.game_over)
             if self._eventhandler() is False:
                 break
-
+            
             if not self.pause:
-                self._draw_display(self.gamestate, self._display)
+                self._draw_display.draw_display()
                 self.gamestate.check_for_full_row()
                 if self.gamestate.check_for_top_reach():
                     self.pause = not self.pause
                     self.game_over = True
-                self._actions.drop_piece(self.level)
+                self._actions.drop_piece(self.level,self._clock)
                 self.level = max(50, (600 - (self.gamestate.score * 10)))
                 self._clock.tick(60)
-
             elif self.pause and not self.game_over:
-                self._draw_display(self.gamestate, self._display)
+                self._draw_display.draw_display()
             if self.game_over:
-                self._draw_display_gameover(
-                    self.gamestate, self._display, self.name)
-                self._clock.tick(60)
+                self._draw_display.draw_display_gameover(self.name)
+                
 
     def _eventhandler(self):
         """Handling the keys being pressed
@@ -58,7 +55,7 @@ class Loop:
         Returns:
             False: To close the game when esc is pressed
         """
-        for event in pygame.event.get():
+        for event in self.events.get_events():
             if event.type == pygame.KEYDOWN:
                 if not self.pause:
                     if event.key == pygame.K_LEFT:
@@ -78,9 +75,9 @@ class Loop:
                         self.name = ""
                         self.gamestate.__init__()
                         self.__init__(self.gamestate,
-                                      self._display,
                                       self._draw_display,
-                                      self._draw_display_gameover)
+                                      self.events,
+                                      self._clock)
 
                     elif event.key == pygame.K_BACKSPACE:
                         self.name = self.name[:-1]
@@ -96,7 +93,6 @@ class Loop:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     click_point = pygame.mouse.get_pos()
                     if self.gamestate.button.rect.collidepoint(click_point):
-                        
                         self.pause = not self.pause
                         self.gamestate.change_button()
             elif event.type == pygame.QUIT:
