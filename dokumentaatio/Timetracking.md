@@ -31,5 +31,5 @@
 | 18.12.| 2    | Fixes, better timer for falling pieces
 | 19.12.| 1    | Fixes for clipping pieces, fastening pace
 | 21.12.| 5    | Database, refactor, fixes
-|yht    | 65   | |
+| sum   | 65   | |
 
