@@ -30,7 +30,6 @@ class Loop:
         """The actual gameplay loop
         """
         while True:
-            print(self.game_over)
             if self._eventhandler() is False:
                 break
 
