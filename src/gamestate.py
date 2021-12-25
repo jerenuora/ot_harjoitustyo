@@ -96,12 +96,9 @@ class GameState:
 
         """
         min_x, min_y = float('inf'), float('inf')
-        orientation = ""
         for piece in self.pieces:
-            if piece.rect.x < min_x:
-                min_x = piece.rect.x
-            if piece.rect.y < min_y:
-                min_y = piece.rect.y
+            min_x = min(piece.rect.x,min_x)
+            min_y = min(piece.rect.y,min_y)
             orientation = piece.orientation
         rotated_piece = rotator(self.next_piece, min_x, min_y, orientation)
         if self.enforce_rotation_ability(rotated_piece):
@@ -117,13 +114,12 @@ class GameState:
             rotated_piece (spritegroup): The rotated piece to test
 
         Returns:
-            Bool: True if piece can be rotated, False if not
+            Bool: True if piece can be rotated
         """
         left = min([piece.rect.x for piece in rotated_piece])
         right = max([piece.rect.x for piece in rotated_piece])
         if left > 338 and right < 796 and not self.check_fallen_collision(rotated_piece):
             return True
-        return False
 
     def check_for_collision(self, x_coord=0, y_coord=0):
         """

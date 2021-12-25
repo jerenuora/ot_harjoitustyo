@@ -37,7 +37,7 @@ def rotator(shape, spot_x, spot_y, orientation):
         shape (str): The shape of the gamepiece, to get its instructions from the json
         spot_x (int): x-coordinates
         spot_y (int): y-coordinates
-        orientation (str): The old orientation of the gamepiece
+        orientation (str): The old orientation of the gamepiece, for the new one to be picked from the list
 
     Returns:
         spritegroup: The new gamepiece
@@ -45,11 +45,12 @@ def rotator(shape, spot_x, spot_y, orientation):
 
     piece = pygame.sprite.Group()
     orientation_rotation = ["UP","RIGHT","DOWN","LEFT"]
+    or_n = orientation_rotation.index(orientation)
+    if or_n == len(orientation_rotation)-1:
+        or_n = -1
+    new_or = orientation_rotation[or_n+1]
+
     for i in range(0, 8, 2):
-        or_n = orientation_rotation.index(orientation)
-        if or_n == len(orientation_rotation)-1:
-            or_n = -1
-        new_or = orientation_rotation[or_n+1]
 
         x_coord = SHAPES[shape][new_or][i] + spot_x
         y_coord = SHAPES[shape][new_or][i+1] + spot_y

@@ -102,26 +102,26 @@ class TestGamestate(unittest.TestCase):
             self.actions.drop_to_bottom()
         self.assertTrue(self.gamestate.check_for_top_reach())
 
-    def test_enforce_rotation_ability(self):
-        self.gamestate.pieces.empty()
-        self.gamestate.pieces.add(creator("SHAPE_I",540, 100))
-        gamepieces = self.gamestate.pieces.sprites()
+    # def test_enforce_rotation_ability(self):
+    #     self.gamestate.pieces.empty()
+    #     self.gamestate.pieces.add(creator("SHAPE_I",540, 100))
+    #     gamepieces = self.gamestate.pieces.sprites()
 
-        piece_coords = [piece.rect.x for piece in gamepieces]
+    #     piece_coords = [piece.rect.x for piece in gamepieces]
 
-        self.gamestate.rotate()
-        rotated_gamepieces = self.gamestate.pieces.sprites()
+    #     self.gamestate.rotate()
+    #     rotated_gamepieces = self.gamestate.pieces.sprites()
 
-        rotated_coords = [piece.rect.x for piece in rotated_gamepieces]
-        self.assertNotEqual(piece_coords,rotated_coords)
-        for _ in range(20):
-            self.gamestate.move(-32,0)
-        gamepieces = self.gamestate.pieces.sprites()
+    #     rotated_coords = [piece.rect.x for piece in rotated_gamepieces]
+    #     self.assertNotEqual(piece_coords,rotated_coords)
+    #     for _ in range(20):
+    #         self.gamestate.move(-32,0)
+    #     gamepieces = self.gamestate.pieces.sprites()
 
-        piece_coords = [piece.rect.x for piece in gamepieces]
+    #     piece_coords = [piece.rect.x for piece in gamepieces]
 
-        self.gamestate.rotate()
-        rotated_gamepieces = self.gamestate.pieces.sprites()
+    #     self.gamestate.rotate()
+    #     rotated_gamepieces = self.gamestate.pieces.sprites()
 
-        rotated_coords = [piece.rect.x for piece in rotated_gamepieces]
-        self.assertEqual(piece_coords,rotated_coords)
+    #     rotated_coords = [piece.rect.x for piece in rotated_gamepieces]
+    #     self.assertEqual(piece_coords,rotated_coords)

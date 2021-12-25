@@ -49,5 +49,5 @@ def database_init():
     create_tables(connection)
 
 
-if __name__ == "__main__":
-    database_init()
+# if __name__ == "__main__":
+#     database_init()
