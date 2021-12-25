@@ -71,8 +71,6 @@ def get_lowest_shown_score():
     rows = cursor.fetchall()
     scores = [row["score"] for row in rows]
     scores.sort(reverse=True)
-    if len(scores) == 0:
-        return 0
     if len(scores) < 3:
-        return scores[-1]
+        return 0
     return scores[2]
