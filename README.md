@@ -13,6 +13,7 @@ A course project for Software Development Methods in the University of Helsinki.
 - [Worked hours](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Timetracking.md)
 - [Requirements specification](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Requirements.md)
 - [Architecture](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Architecture.md)
+- [Testing](https://github.com/jerenuora/ot_harjoitustyo/blob/master/dokumentaatio/Testing.md)
 ## Installation
 - Install dependencies with:
 ```bash
