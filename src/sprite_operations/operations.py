@@ -37,7 +37,8 @@ def rotator(shape, spot_x, spot_y, orientation):
         shape (str): The shape of the gamepiece, to get its instructions from the json
         spot_x (int): x-coordinates
         spot_y (int): y-coordinates
-        orientation (str): The old orientation of the gamepiece, for the new one to be picked from the list
+        orientation (str): The old orientation of the gamepiece,
+                           for the new one to be picked from the list
 
     Returns:
         spritegroup: The new gamepiece

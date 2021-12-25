@@ -68,7 +68,12 @@ class Loop:
             elif event.type == pygame.QUIT:
                 return False
 
-    def handle_basic_keydowns(self,event):
+    def handle_basic_keydowns(self, event):
+        """Handling the keys being pressed in the basic situation
+
+        Args:
+            event (eventstream): events
+        """
         if not self.pause:
             if event.key == pygame.K_LEFT:
                 self._actions.left_once()
@@ -87,21 +92,27 @@ class Loop:
             self.gamestate.change_button()
 
     def handle_game_over(self, event):
-            if event.key == pygame.K_RETURN:
-                self.start_new()
-            elif event.key == pygame.K_BACKSPACE:
-                self.name = self.name[:-1]
-            else:
-                if len(self.name) < 3 and event.unicode != " ":
-                    self.name += event.unicode.upper()
+        """Handling the keys being pressed in the gameover situation
 
-    def start_new(self):
-                        self._actions.save_score(
-                            self.name, self.gamestate.score)
-                        self.name = ""
-                        self.gamestate.__init__()
-                        self.__init__(self.gamestate,
-                                      self._draw_display,
-                                      self.events,
-                                      self._clock)
+        Args:
+            event (eventstream): events
+        """
+        if event.key == pygame.K_RETURN:
+            self.start_anew()
+        elif event.key == pygame.K_BACKSPACE:
+            self.name = self.name[:-1]
+        else:
+            if len(self.name) < 3 and event.unicode != " ":
+                self.name += event.unicode.upper()
 
+    def start_anew(self):
+        """Set up a new game
+        """
+        self._actions.save_score(
+            self.name, self.gamestate.score)
+        self.name = ""
+        self.gamestate.__init__()
+        self.__init__(self.gamestate,
+                      self._draw_display,
+                      self.events,
+                      self._clock)

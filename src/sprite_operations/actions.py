@@ -1,7 +1,6 @@
 """
 To perform actions called upon by loop
 """
-import pygame
 from database.database_actions import put_scores
 
 
