@@ -4,9 +4,11 @@
 
 The program follows a three layer architecture, and its package structure is: 
 
-![mermaid-diagram-20211214215829](https://user-images.githubusercontent.com/70661652/146072761-dab892ec-e51b-4a29-86b5-cb18bedbb2f6.png)
+![Untitled Diagram drawio-2](https://user-images.githubusercontent.com/70661652/147417042-bdb31c6c-133f-4311-bc04-aff26005fbdc.png)!
 
-Where UI handles drawing the screen, Loop is in charge of the gameplayloop and giving commands to Gamestate, which in turn keeps track of the state of the sprites and hadles manipulating them, using operations found in sprite operations. 
+
+
+Where UI handles drawing the screen, Sprite operations contains the logic and Sprites and Assets contain the data. In this i've placed the Loop and Gamestate in sprite operations, as they should be in there, but time constraints do not allow me to refactor them in there and write all the documents to reflect the change.  
 
 
 ## User interface
