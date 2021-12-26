@@ -31,5 +31,12 @@ The database uses files configured the [config](https://github.com/jerenuora/ot_
 
 The json file containing the shape instructions set up similarly, and therefore the game could be expanded to contain additional tetromino shapes, for example.  
 
+## Functionality
+The following chart shows what happens when the game is started at first. 
 ![Untitled-2](https://user-images.githubusercontent.com/70661652/144767569-57c16e89-4029-498e-ad60-3ea6f99adc12.png)
 ![7ebf8f66](https://user-images.githubusercontent.com/70661652/143919758-c6bc3943-8281-49ff-9785-b78bec8c9817.jpg)
+
+## Weaknesses
+The class Gamestate is too big, and contains in addition to the state of the game and sprites, the functions to manipulate the sprites, and should have been split up in to smaller classes. 
+
+The UI in general could have been more polished, as it started out very ambitious with its hand drawn graphics, but due to time constraints turned out to be a mix of hand drawn elements and some lines and fonts.  
