@@ -31,8 +31,8 @@ The game starts at its “PAUSE” state, so press the “PLAY” button with yo
 - You can exit by pressing ESC-key, or just by closing the game-window.
 - 
 # When the game ends
-- If a high score is achieved, enter your initials (3 letters) and press enter.
-- If a high score is not achieved, just press enter to play again. 
+- If a high score is achieved, enter your initials (3 letters) and press Enter.
+- If a high score is not achieved, just press Enter to play again. 
 # Rules
 
 - The tetromino (the gamepiece) moves down, left, or right, until it meets the bottom, or an already fallen tetromino on the bottom. 
