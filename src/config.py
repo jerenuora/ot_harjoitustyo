@@ -1,3 +1,6 @@
+"""
+Configurations for database, json files
+"""
 import os
 from dotenv import load_dotenv
 
