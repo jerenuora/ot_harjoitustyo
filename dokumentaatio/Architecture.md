@@ -11,11 +11,25 @@ Where UI handles drawing the screen, Loop is in charge of the gameplayloop and g
 
 ## User interface
 
-User interface of the game consists of a single window, containing the game and all its additional information. The class Loop handles operating the user interface, and only calls the UI-functions to draw the content on the screen. This is an issue that requires some additional thought moving forward. 
+User interface of the game consists of a single window, containing the game and all its additional information. The class Loop calls the UI-class DrawDisplay and its different functions or "screens", that are as follows:
+- The pause-screen
+- The play-screen
+- The gameover with no highscore-screen
+- The gameover with a new highscore-screen
+
+The different screens all share the gameboard and its current state in the middle, and on the left are displayed the highscores. Thus they are all contained in a single class with just different parts of the screen changing at different times as functions. 
 
 ## Logic 
 
-The gameplayloop Loop is mainly in charge of handling the polling of the input and calling the Gamestate and its movement methods etc. via Actions in sprite.operations. Gamestate then performs the calledupon movement, partly in its internal funcions and partly in sprite.operations. This should be reworked to be more consistent, possibly by creating a separate class to handle all movement, and leaving Gamestate to only keep track of the sprites. 
+The gameplayloop Loop is mainly in charge of handling the polling of the input and calling the Gamestate and its movement methods etc. via Actions in sprite.operations. Gamestate then performs the calledupon movement, partly by calling the creation and rotation functions in sprite_operations.operations, and partly by performing them in its internal methods. This perhaps leaves the gamestate class to be too big and the movement should have been separated in to its own class, leaving Gamestate to only keep track of the sprites.
+
+## Data storage
+Data storage is handled by the database folders's database functions that save and read the SQL-database. Json-loader reads the tetromino-shape instructions needed by creator and rotator.
+
+### Files 
+The database uses files configured the [config](https://github.com/jerenuora/ot_harjoitustyo/blob/master/src/config.py) file, that reads them from [.env](https://github.com/jerenuora/ot_harjoitustyo/blob/master/.env), and in the case of testing, [.env.test](https://github.com/jerenuora/ot_harjoitustyo/blob/master/.env.test)
+
+The json file containing the shape instructions set up similarly, and therefore the game could be expanded to contain additional tetromino shapes, for example.  
 
 ![Untitled-2](https://user-images.githubusercontent.com/70661652/144767569-57c16e89-4029-498e-ad60-3ea6f99adc12.png)
 ![7ebf8f66](https://user-images.githubusercontent.com/70661652/143919758-c6bc3943-8281-49ff-9785-b78bec8c9817.jpg)
