@@ -39,4 +39,4 @@ The following chart shows what happens when the game is started at first.
 ## Weaknesses
 The class Gamestate is too big, and contains in addition to the state of the game and sprites, the functions to manipulate the sprites, and should have been split up in to smaller classes. 
 
-The UI in general could have been more polished, as it started out very ambitious with its hand drawn graphics, but due to time constraints turned out to be a mix of hand drawn elements and some lines and fonts.  
+The UI in general could have been more polished, and it started out very ambitious with its hand drawn graphics, but due to time constraints turned out to be a mix of hand drawn elements and some lines and fonts.  
