@@ -1,6 +1,6 @@
 # Hours worked
 
-| date  | time | work  |
+| date  | time | description  |
 | :----:|:-----| :-----|
 | 15.11.| 1    | Requirements specification|
 | 18.11.| 2    | Setting up poetry project, updating readme
@@ -32,5 +32,7 @@
 | 19.12.| 1    | Fixes for clipping pieces, fastening pace
 | 21.12.| 5    | Database, refactor, fixes
 | 21.12.| 3    | Testing
-| sum   | 68   | |
+| 25.12.| 2    | Final touches
+| 26.12.| 3    | Documentation
+| sum   | 73   | |
 
