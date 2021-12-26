@@ -1,6 +1,6 @@
 # Manual
 
-Download latest [release](https://github.com/jerenuora/ot_harjoitustyo/releases/tag/viikko5)
+Download latest [release](https://github.com/jerenuora/ot_harjoitustyo/releases)
 
 
 ## Running the program
